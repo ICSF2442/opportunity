@@ -25,30 +25,30 @@ function test_input($dados) {
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	if (empty($_POST["nome"])) {
-		$nomeErr = "Name is required!";
+		$nomeErr = "Nome é obrigatório!";
 	  } else {
       $nome = test_input($_POST["nome"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^([^[:punct:]\d]+)$/",$nome)) {
-        $nomeErr = "Only letters and white space allowed.";
+        $nomeErr = "Somente letras e espaços em branco permitidos.";
       }
 	  }
 	  
 	  if (empty($_POST["email"])) {
-		$emailErr = "Email is required!";
+		$emailErr = "Email é obrigatório!";
 	  } else {
       $email = test_input($_POST["email"]);
       // verifica o formato do email
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format!";
+        $emailErr = "Formato de email invalido!";
       }
     }
 
     
-    if (strlen($_POST["password"]) < 5) {    
-      $passwordErr = "Password must have min. 5 characters!";
+    if (strlen($_POST["password"]) < 8) {    
+      $passwordErr = "Password tem de ter pelo menos 8 caracteres!";
       } elseif ($_POST["password"] != $_POST["rpassword"]){
-        $passwordErr = "Passwords does not match!";
+        $passwordErr = "Passwords não coencidem!";
         } else { 
           $password = test_input($_POST["password"]);
       }
@@ -66,40 +66,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- insert here the reference to stylesheet file -->
-    <link href="" rel="stylesheet">
-    <title>EXEMPLE TO MANAGE DATABASE WITH PHP</title>
+    <title>Opportunity</title>
   </head>
 
   <body>
   <header>
       <!-- navigation bar -->
       <nav>
-        <a href="#">Oppurtonity</a>
+        <a href="#">Opportunity</a>
+        
         <div>
           <ul>
             <li>
               <a href="index.php">Login</a>
             </li>
           </ul>
-
-          <!-- search form -->
-          <form name="frmPesquisa" method="post" action="read.php">
-            <input type="text" placeholder="Search" aria-label="Search" name="pesquisa">
-            <button type="submit">Search</button>
-          </form>
-
         </div>
       </nav>
       <!-- /.navigation bar -->
     </header>
     <main>
       <div> <!-- title -->
-        <legend><strong>Create</strong>RUD</legend>
+        <legend><strong>Registo de utilizador</strong></legend>
       </div>
 
       <div><!-- info -->
@@ -107,16 +101,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           if($_SERVER["REQUEST_METHOD"] == "POST" AND $nomeErr =="" AND $emailErr == "" AND $passwordErr =="") {
         ?>
           <div>
-            <h4 >Info!</h4>
+            <h4 >Parabens!</h4>
             <hr>
-            Data were sent to database.
+            Foi registado com sucesso!
           </div>
         <?php
             }	
         ?>
         <?php if($nomeErr !="" OR $emailErr != "" OR $passwordErr !="") { ?>
           <div>
-              <h4>Alert!</h4>
+              <h4>Erro!</h4>
               <hr>
               <p><?PHP echo $nomeErr ?></p>
               <p><?PHP echo $emailErr ?></p>
@@ -155,8 +149,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
               <div>
                 <div>	
                   <button name="gravar" type="submit" <?php echo $disabled ?>>Save</button>
-                  <button name="limpar" type="reset" >Reset</button>
-                  <a href="read.php">Back to list</a>
                 </div>
               </div>
             </div>
