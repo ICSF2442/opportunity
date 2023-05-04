@@ -83,16 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div>
           <ul>
             <li>
-              <a href="index.php">Home</a>
-            </li>
-            <li>
-              <a href="read.php">List data</a>
-            </li>
-            <li >
-              <a href="create.php">Create new</a>
-            </li>
-            <li>
-              <a href="close_session.php">End session</a>
+              <a href="index.php">Login</a>
             </li>
           </ul>
 
