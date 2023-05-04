@@ -84,6 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div>
           <ul>
             <li>
+              <a href="home.php">Home</a>
               <a href="index.php">Login</a>
             </li>
           </ul>

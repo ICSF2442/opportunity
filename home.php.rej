@@ -1,0 +1,10 @@
+diff a/home.php b/home.php	(rejected hunks)
+@@ -0,0 +1,7 @@
++!DOCTYPE html>
++<html lang="en">
++  <head>
++    <title> Opportunity <title>
++  </head>
++
++  
+\ No newline at end of file
