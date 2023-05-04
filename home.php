@@ -4,6 +4,11 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+  <div class="fade-half">
+    <video id="Background-video" autoplay loop muted >
+    <source src="imagens/video.mp4" type="video/mp4">
+    </video>
+  </div>
   <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +21,8 @@ session_start();
     
   </head>
 <body>
+
+
   <header>
     <div class="cabecalho">
       <div class="logo">

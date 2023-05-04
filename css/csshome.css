@@ -11,3 +11,39 @@
 p{
     color: aqua;
 }
+
+body {
+    
+    background-size: cover;
+  }
+
+
+  .fade-half {
+    position: relative;
+  }
+  .fade-half:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* set width to 100% of viewport width */
+    height: 100vh; /* set height to 100% of viewport height */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .fade-half  {
+    position: relative;
+    z-index: 2;
+  }
+
+  #Background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* set width to 100% of viewport width */
+    height: 100vh; /* set height to 100% of viewport height */
+    object-fit: cover;
+    z-index: -1;
+  }
