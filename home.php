@@ -26,7 +26,7 @@ session_start();
   <header>
     <div class="cabecalho">
       <div class="logo">
-        <img src="imagens/Logo_Opportunity.png">
+        <img src="imagens/Logo_Opportunity3.png">
       </div>
       <ul class="nav-area">
       <ul>
@@ -38,8 +38,10 @@ session_start();
     </div>  
       <div class="Bem-vindo">
         <h1>Bem vindo ao Opportunity</h1>
-        <p>Contacta-nos: diogofernandoneves1@gmail.com / ICSF2442@gmail.com<p>
       </div>  
+      <div class="Info">
+      <p id="contactos">Contacta-nos: diogofernandoneves1@gmail.com / ICSF2442@gmail.com<p>
+      </div>
   </header>
 </body>
   

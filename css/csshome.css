@@ -8,8 +8,36 @@
     margin: auto;
 }
 
-p{
-    color: aqua;
+.cabecalho, .Bem-vindo, p, body {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+.Bem-vindo {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  margin-top: 3%; 
+}
+
+.Info{
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  margin-top: 32%; 
+}
+
+p {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  color: white;
+ 
 }
 
 body {
@@ -21,29 +49,33 @@ body {
   .fade-half {
     position: relative;
   }
+  
+  /* fade */
   .fade-half:before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* set width to 100% of viewport width */
-    height: 100vh; /* set height to 100% of viewport height */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(0, 0, 0));
-    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 10), rgba(0, 0, 0, 0.8));
+    z-index: 10;
     pointer-events: none;
   }
   
-  .fade-half  {
-    position: relative;
-    z-index: 2;
-  }
-
   #Background-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* set width to 100% of viewport width */
-    height: 100vh; /* set height to 100% of viewport height */
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
   }
+  
+  .fade-half {
+    position: relative;
+    z-index: 1;
+  }
+  
+ 
