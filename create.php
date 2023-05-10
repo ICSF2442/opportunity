@@ -8,7 +8,7 @@ ini_set('default_charset', 'UTF-8');
 
 
 // database connection
-include ("db_connect.php");
+include ("Database.php");
 
 // intialize variables
 $nomeErr = $emailErr = $passwordErr= "";
