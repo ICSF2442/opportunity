@@ -35,7 +35,7 @@
 p {
   position: relative;
   bottom: 0;
-  left: 0;
+  right:50%;
   margin: 20px;
   color: white;
   display: block;
@@ -155,7 +155,6 @@ h1 {
    position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(1, -50%);
   text-align: left;
   z-index: 2;
   display: flex;
@@ -167,9 +166,8 @@ h1 {
  
 }
 
-.texto1 p {
-  display: block;
-  margin: 0 0 10px 0;
+.texto1 {
+  left:50%
 }
 
 .container p {
