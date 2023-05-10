@@ -47,4 +47,16 @@ class Database
         return self::$database;
     }
 
+    public static function getNextIncrement($table, $commit = false) : int {
+        try {
+            $value = self::getConnection()->query("SELECT auto_increment as 'val' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = '$table'")->fetch_array()["val"];
+            if($value === null){
+                return 1;
+            } else return $value;
+        } catch (IOException $e){
+            echo $e->getTraceAsString();
+            return -1;
+        }
+    }
+
 }
