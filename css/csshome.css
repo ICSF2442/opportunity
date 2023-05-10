@@ -61,7 +61,7 @@ body {
     left: 0;
     width: 100vw;
     height: 135vh;
-    background: linear-gradient(to top, rgba(0, 0, 0, 10), rgba(0, 0, 0, 0.8));
+    background: linear-gradient(to top, rgba(0, 0, 0, 10), rgba(0, 0, 0, 0.85));
     z-index: 10;
     pointer-events: none;
   }
@@ -155,7 +155,7 @@ h1 {
    position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(1, -50%);
+  transform: translate(-50%, -50%);
   text-align: left;
   z-index: 2;
   display: flex;
