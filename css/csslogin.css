@@ -1,0 +1,107 @@
+body {
+  background-image: url("https://cdnb.artstation.com/p/assets/images/images/015/604/321/large/mathias-zamecki-5.jpg?1548942407");
+  background-size: cover;
+}
+  
+  .loginbox{
+    width: 320px ;
+    height: 420px ;
+    background: rgb(10, 20, 104) ;
+    color: #fff ;
+    top: 50% ;
+    left: 50% ;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+   
+    
+  
+  }
+  
+  .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+  }
+  
+  h1 {
+    color: white;
+    
+  }
+  
+  p {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  ::placeholder{
+    color:black;
+  }
+  
+  [name = "email"]{
+    width : 100%;
+  }
+  
+  [name = "password"] {
+    width : 100%;
+  }
+  
+  h1{
+    margin:0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 40px;
+    color: blue;
+  }
+  
+  .loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+  
+  .loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .loginbox input[type="email"]{
+    border: none;
+    border-bottom:1px solid #fff;
+    background: transparent;
+    height: 40px;
+    font-size: 16px;  
+  
+  }
+  
+  .loginbox input[type="password"]{
+    border: none;
+    border-bottom:1px solid #fff;
+    background: transparent;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .loginbox button[type="submit"]{
+    border: none;
+    outline:none;
+    height: 40px;
+    background: blue;
+    color: #fff;
+    font-size: 18px;
+    width:50%;
+    border-radius: 20px;
+  }
+  
+  .loginbox button[type="submit"]:hover{
+    cursor:pointer;
+    background: aquamarine;
+    color: #000;
+  }
+  

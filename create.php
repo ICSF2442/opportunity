@@ -71,6 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="css/csscreate.css" rel="stylesheet">
     <!-- insert here the reference to stylesheet file -->
     <title>Opportunity</title>
   </head>
