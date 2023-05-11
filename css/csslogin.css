@@ -98,6 +98,8 @@ body {
     width:50%;
     border-radius: 20px;
   }
+
+
   
   .loginbox button[type="submit"]:hover{
     cursor:pointer;

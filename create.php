@@ -1,14 +1,15 @@
 <?php
+require_once("api/items/Functions/Database.php");
+
+use Cassandra\Blob;
+use Functions\Database;
+
 //initialize session
 session_start();
 
 // PHP charset
 ini_set('default_charset', 'UTF-8');
 
-
-
-// database connection
-include ("Database.php");
 
 // intialize variables
 $nomeErr = $emailErr = $passwordErr= "";
@@ -54,13 +55,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
 	if ($nomeErr =="" AND $emailErr == "" AND $passwordErr == ""){
-		$query = "INSERT INTO contatos (nome, email, password)
+		$query = "INSERT INTO user (username, email, password);
 		VALUES ('$nome',  '$email', '$password')";
-    mysqli_query ($conn,$query);
+        Database::getConnection()->query($query);
     $disabled = "disabled";
     $hidden = "hidden";
 	}
+
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -80,23 +84,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   <header>
       <!-- navigation bar -->
       <nav>
-        <a href="#">Opportunity</a>
-        
-        <div>
-          <ul>
-            <li>
-              <a href="home.php">Home</a>
-              <a href="index.php">Login</a>
-            </li>
-          </ul>
-        </div>
+
+
+          <div class="button-container">
+              <a href="login.php"><button>Login</button></a>
+              <a href="home.php"><button>Home</button></a>
+          </div>
       </nav>
       <!-- /.navigation bar -->
     </header>
     <main>
-      <div> <!-- title -->
-        <legend><strong>Registo de utilizador</strong></legend>
-      </div>
 
       <div><!-- info -->
         <?php
@@ -120,11 +117,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
         <?php }	?>
       </div><!-- /.info -->
-
       <div><!-- contentor do formulario --> 
         <form name="frmInserir" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <div class="createbox">
             <div>
-              <label>Name </label>
+                <img src="imagens/Logo_Opportunity3.png" class="avatar">
+                <label>Name </label>
               <div >
                 <input name="nome" type="text" value="<?php echo $nome;?>" placeholder="Name" <?php echo $disabled ?>>
               </div>
@@ -148,19 +146,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
             </div>
             <div>
+            <label>Birthday</label>
+              <div>
+                <input name="birthday" type="date" <?php echo $disabled ?>>
+              </div>
+            </div>
+            <div>
               <div>
                 <div>	
                   <button name="gravar" type="submit" <?php echo $disabled ?>>Save</button>
                 </div>
               </div>
             </div>
+        </div>
         </form>
       </div><!-- /.container -->
     </main>
   </body>
 </html>
-<?php
-// close connection
-mysqli_close ($conn);
-
-?>

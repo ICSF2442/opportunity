@@ -1,12 +1,17 @@
 <?php
-//initialize session
+require_once("api/items/Functions/Database.php");
 session_start();
+
+
+
+use Cassandra\Blob;
+use Functions\Database;
 
 // PHP charset
 ini_set('default_charset', 'UTF-8');
 
-// database connection
-include ("db_connect.php");
+
+
 
 // intialize variables
 $nomeErr = $emailErr = $passwordErr= "";
@@ -43,8 +48,8 @@ if( !empty( $_SESSION['login'] )){
     }
     
     if ($passwordErr =="" AND $emailErr == ""){
-      $query = "SELECT * FROM contatos WHERE email='$_POST[email]' AND  password='$_POST[password]'";
-      $result = mysqli_query ($conn,$query);
+      $query = "SELECT * FROM user WHERE email='$_POST[email]' AND  password='$_POST[password]'";
+      $result=Database::getConnection()->query($query);
       $row = mysqli_fetch_assoc ($result);
       if (mysqli_num_rows($result) > 0){
         $_SESSION['nome'] = $row['nome'];
@@ -119,6 +124,3 @@ if( !empty( $_SESSION['login'] )){
 
   </body>
 </html>
-<?php
-  mysqli_close($conn);
-?>
