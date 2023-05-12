@@ -7,27 +7,27 @@ use Functions\Database;
 
  class User
  {
-     private ?int $id;
+     private ?int $id = null;
 
-     private ?string $username;
+     private ?string $username = null;
 
-     private ?string $email;
+     private ?string $email = null;
 
-     private ?string $password;
+     private ?string $password = null;
 
-     private ?string $birthday;
+     private ?string $birthday = null;
 
-     private ?float $winrate;
+     private ?float $winrate = null;
 
-     private ?int $dev;
+     private ?int $dev = null;
 
-     private ?Blob $image;
+     private ?Blob $image = null;
 
-     private ?int $team;
+     private ?int $team = null;
 
-     private ?int $status;
+     private ?int $status = null;
 
-     private ?int $role;
+     private ?int $role = null;
 
 
      public function __construct(int $id = null)
@@ -53,9 +53,21 @@ use Functions\Database;
 
      public function store(): void
      {
+         $this->id = 2;
+         $this->username = "a";
+         $database = Database::getConnection();
+         $query = $database->query("SELECT * FROM user WHERE id = $this->id;");
+         $teste = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
+         $teste = $query->fetch_array(MYSQLI_ASSOC);
+         var_dump($teste);
+
          if ($this->id == null) {
              $this->id = Database::getNextIncrement("user");
-             $sql = "INSERT INTO user(id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',$this->team,$this->status,$this->role)";
+             $this->id = 15;
+             $this->{"id"} = 18;
+             echo $this->id;
+             $sql = "INSERT INTO user (id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES ($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',".($this->team == null ? "NULL" : "'$this->team'").",$this->status,$this->role)";
+             echo ($sql);
              Database::getConnection()->query($sql);
          }else{
             $sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
