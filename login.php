@@ -26,7 +26,7 @@ function test_input($dados) {
   }
 
 if( !empty( $_SESSION['login'] )){
-    header ('Location: index.php');
+    header ('Location: utilizador.php');
 } else {
 
   if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -54,12 +54,13 @@ if( !empty( $_SESSION['login'] )){
       if (mysqli_num_rows($result) > 0){
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['login'] = TRUE;
-        header ('Location: index.php');
+        header ('Location: utilizador.php');
       } else {
         $autErr ="Please verify you authentication data!";
       }
   
     }
+
   }
 }
 
