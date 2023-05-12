@@ -81,5 +81,87 @@ class Team{
 
     }
 
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     */
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWinrate(): float
+    {
+        return $this->winrate;
+    }
+
+    /**
+     * @param float $winrate
+     */
+    public function setWinrate(float $winrate): void
+    {
+        $this->winrate = $winrate;
+    }
+
+    /**
+     * @return Blob|null
+     */
+    public function getLogo(): ?Blob
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Blob|null $logo
+     */
+    public function setLogo(?Blob $logo): void
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getOwner(): ?int
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param int|null $owner
+     */
+    public function setOwner(?int $owner): void
+    {
+        $this->owner = $owner;
+    }
+
+
+
 
 }

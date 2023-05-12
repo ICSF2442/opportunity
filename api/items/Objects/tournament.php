@@ -93,4 +93,150 @@ class Tournament{
 
     }
 
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     */
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int|null $status
+     */
+    public function setStatus(?int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return Blob|null
+     */
+    public function getImage(): ?Blob
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param Blob|null $image
+     */
+    public function setImage(?Blob $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return Blob|null
+     */
+    public function getLogo(): ?Blob
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Blob|null $logo
+     */
+    public function setLogo(?Blob $logo): void
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getSize(): ?int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int|null $size
+     */
+    public function setSize(?int $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getWinner(): ?int
+    {
+        return $this->winner;
+    }
+
+    /**
+     * @param int|null $winner
+     */
+    public function setWinner(?int $winner): void
+    {
+        $this->winner = $winner;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTypeBracket(): ?int
+    {
+        return $this->typeBracket;
+    }
+
+    /**
+     * @param int|null $typeBracket
+     */
+    public function setTypeBracket(?int $typeBracket): void
+    {
+        $this->typeBracket = $typeBracket;
+    }
+
+    /**
+     * @return DateTime|null
+     */
+    public function getTempoInicio(): ?DateTime
+    {
+        return $this->tempo_inicio;
+    }
+
+    /**
+     * @param DateTime|null $tempo_inicio
+     */
+    public function setTempoInicio(?DateTime $tempo_inicio): void
+    {
+        $this->tempo_inicio = $tempo_inicio;
+    }
+
+
+
 }

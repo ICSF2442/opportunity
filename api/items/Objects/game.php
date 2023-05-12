@@ -2,7 +2,7 @@
 
 namespace Objects;
 
-use Cassandra\Blob;
+
 use DateTime;
 use Functions\Database;
 class game
@@ -41,7 +41,7 @@ private ?DateTime $tempo_inicio;
     public function store() : void{
         if ($this->id == null) {
             $this->id = Database::getNextIncrement("team");
-            $sql = "INSERT INTO game(id,tournament,team1,team2,status,winner,tempo_inicio) VALUES($this->id, $this->tournament, $this->team1, $this->team2,$this->status,$this->winner,$this->tempo_inicio)";
+            $sql = "INSERT INTO game(id,tournament,team1,team2,status,winner,tempo_inicio) VALUES($this->id, $this->tournament, $this->team1, $this->team2,$this->status,$this->winner,'$this->tempo_inicio')";
             Database::getConnection()->query($sql);
         }else{
             $sql = "UPDATE game SET tournament = $this->tournament, team1 = $this->team1, team2 = $this->team2, status = $this->status, winner = $this->winner, tempo_inicio = '$this->tempo_inicio' WHERE id = $this->id";
@@ -86,6 +86,120 @@ private ?DateTime $tempo_inicio;
         return $ret;
 
     }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTournament(): ?int
+    {
+        return $this->tournament;
+    }
+
+    /**
+     * @param int|null $tournament
+     */
+    public function setTournament(?int $tournament): void
+    {
+        $this->tournament = $tournament;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTeam1(): ?int
+    {
+        return $this->team1;
+    }
+
+    /**
+     * @param int|null $team1
+     */
+    public function setTeam1(?int $team1): void
+    {
+        $this->team1 = $team1;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTeam2(): ?int
+    {
+        return $this->team2;
+    }
+
+    /**
+     * @param int|null $team2
+     */
+    public function setTeam2(?int $team2): void
+    {
+        $this->team2 = $team2;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int|null $status
+     */
+    public function setStatus(?int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getWinner(): ?int
+    {
+        return $this->winner;
+    }
+
+    /**
+     * @param int|null $winner
+     */
+    public function setWinner(?int $winner): void
+    {
+        $this->winner = $winner;
+    }
+
+    /**
+     * @return DateTime|null
+     */
+    public function getTempoInicio(): ?DateTime
+    {
+        return $this->tempo_inicio;
+    }
+
+    /**
+     * @param DateTime|null $tempo_inicio
+     */
+    public function setTempoInicio(?DateTime $tempo_inicio): void
+    {
+        $this->tempo_inicio = $tempo_inicio;
+    }
+
+
 
 
 }

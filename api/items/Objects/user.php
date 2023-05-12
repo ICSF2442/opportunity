@@ -102,5 +102,183 @@ use Functions\Database;
 
      }
 
+     /**
+      * @return int|null
+      */
+     public function getId(): ?int
+     {
+         return $this->id;
+     }
+
+     /**
+      * @param int|null $id
+      */
+     public function setId(?int $id): void
+     {
+         $this->id = $id;
+     }
+
+     /**
+      * @return string|null
+      */
+     public function getUsername(): ?string
+     {
+         return $this->username;
+     }
+
+     /**
+      * @param string|null $username
+      */
+     public function setUsername(?string $username): void
+     {
+         $this->username = $username;
+     }
+
+     /**
+      * @return string|null
+      */
+     public function getEmail(): ?string
+     {
+         return $this->email;
+     }
+
+     /**
+      * @param string|null $email
+      */
+     public function setEmail(?string $email): void
+     {
+         $this->email = $email;
+     }
+
+     /**
+      * @return string|null
+      */
+     public function getPassword(): ?string
+     {
+         return $this->password;
+     }
+
+     /**
+      * @param string|null $password
+      */
+     public function setPassword(?string $password): void
+     {
+         $this->password = $password;
+     }
+
+     /**
+      * @return string|null
+      */
+     public function getBirthday(): ?string
+     {
+         return $this->birthday;
+     }
+
+     /**
+      * @param string|null $birthday
+      */
+     public function setBirthday(?string $birthday): void
+     {
+         $this->birthday = $birthday;
+     }
+
+     /**
+      * @return float|null
+      */
+     public function getWinrate(): ?float
+     {
+         return $this->winrate;
+     }
+
+     /**
+      * @param float|null $winrate
+      */
+     public function setWinrate(?float $winrate): void
+     {
+         $this->winrate = $winrate;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getDev(): ?int
+     {
+         return $this->dev;
+     }
+
+     /**
+      * @param int|null $dev
+      */
+     public function setDev(?int $dev): void
+     {
+         $this->dev = $dev;
+     }
+
+     /**
+      * @return Blob|null
+      */
+     public function getImage(): ?Blob
+     {
+         return $this->image;
+     }
+
+     /**
+      * @param Blob|null $image
+      */
+     public function setImage(?Blob $image): void
+     {
+         $this->image = $image;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getTeam(): ?int
+     {
+         return $this->team;
+     }
+
+     /**
+      * @param int|null $team
+      */
+     public function setTeam(?int $team): void
+     {
+         $this->team = $team;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getStatus(): ?int
+     {
+         return $this->status;
+     }
+
+     /**
+      * @param int|null $status
+      */
+     public function setStatus(?int $status): void
+     {
+         $this->status = $status;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getRole(): ?int
+     {
+         return $this->role;
+     }
+
+     /**
+      * @param int|null $role
+      */
+     public function setRole(?int $role): void
+     {
+         $this->role = $role;
+     }
+
+
+
 
  }
