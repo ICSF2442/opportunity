@@ -5,40 +5,34 @@ namespace Objects;
 use Cassandra\Blob;
 use DateTime;
 use Functions\Database;
+class game
+{
+private ?int $id;
 
-class Tournament{
-    private ?int $id;
+private ?int $tournament;
 
-    private ?string $name;
+private ?int $team1;
 
-    private ?int $status;
+private ?int $team2;
 
-    private ?Blob $image;
+private ?int $status;
 
-    private ?Blob $logo;
+private ?int $winner;
 
-    private ?int $size;
-
-    private ?int $winner;
-
-    private ?int $typeBracket;
-
-    private ?DateTime $tempo_inicio;
+private ?DateTime $tempo_inicio;
 
     public function __construct(int $id = null)
     {
         if ($id != null && Database::getConnection() != null) {
             $database = Database::getConnection();
-            $query = $database->query("SELECT * FROM tournament WHERE id = $id;");
+            $query = $database->query("SELECT * FROM game WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
-                $this->name = $row["name"];
+                $this->tournament = $row["tournament"];
+                $this->team1 = $row["team1"];
+                $this->team2 = $row["team2"];
                 $this->status = $row["status"];
-                $this->image = $row["image"];
-                $this->logo = $row["logo"];
-                $this->size = $row["size"];
                 $this->winner = $row["winner"];
-                $this->typeBracket = $row["typeBracket"];
                 $this->tempo_inicio = $row["tempo_inicio"];
             }
         }
@@ -46,11 +40,11 @@ class Tournament{
 
     public function store() : void{
         if ($this->id == null) {
-            $this->id = Database::getNextIncrement("tournament");
-            $sql = "INSERT INTO tournament(id,name,status,image,logo,size,winner,typeBracket,tempo_inicio) VALUES($this->id,'$this->name',$this->status,'$this->image','$this->logo',$this->size,$this->winner,$this->typeBracket,'$this->tempo_inicio')";
+            $this->id = Database::getNextIncrement("team");
+            $sql = "INSERT INTO game(id,tournament,team1,team2,status,winner,tempo_inicio) VALUES($this->id, $this->tournament, $this->team1, $this->team2,$this->status,$this->winner,$this->tempo_inicio)";
             Database::getConnection()->query($sql);
         }else{
-            $sql = "UPDATE tournament SET name = '$this->name', status = $this->status,image = '$this->image', logo = '$this->logo', size = $this->size, winner = $this->winner, typeBracket = $this->typeBracket,tempo_inicio = '$this->tempo_inicio' WHERE id = $this->id";
+            $sql = "UPDATE game SET tournament = $this->tournament, team1 = $this->team1, team2 = $this->team2, status = $this->status, winner = $this->winner, tempo_inicio = '$this->tempo_inicio' WHERE id = $this->id";
             Database::getConnection()->query($sql);
         }
     }
@@ -58,20 +52,20 @@ class Tournament{
     public function remove(): void
     {
         if ($this->id != null){
-            $sql = "DELETE FROM tournament WHERE id = $this->id";
+            $sql = "DELETE FROM game WHERE id = $this->id";
             Database::getConnection()->query($sql);
         }
     }
 
-    public static function search(int $id = null, string $name = null, int $status = null): array{
+    public static function search(int $id = null, int $team = null, int $status = null): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM tournament WHERE 1=1";
+        $sql = "SELECT ID FROM game WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";
         }
-        if($name != null){
-            $sql .= " and (name = '$name')";
+        if($team != null){
+            $sql .= " and (team1 = $team OR team2 = $team)";
         }
         if($status != null){
             $sql .= " and (status = $status)";
@@ -92,5 +86,6 @@ class Tournament{
         return $ret;
 
     }
+
 
 }

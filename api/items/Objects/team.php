@@ -21,7 +21,7 @@ class Team{
     {
         if ($id != null && Database::getConnection() != null) {
             $database = Database::getConnection();
-            $query = $database->query("SELECT * FROM user WHERE id = $id;");
+            $query = $database->query("SELECT * FROM team WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
                 $this->name = $row["name"];
@@ -38,7 +38,7 @@ class Team{
             $sql = "INSERT INTO team(id,name,winrate,logo,owner) VALUES($this->id, '$this->name', $this->winrate, '$this->logo',$this->owner)";
             Database::getConnection()->query($sql);
         }else{
-            $sql = "UPDATE team SET name = $this->name, winrate = $this->winrate, logo = $this->logo, owner = $this->owner WHERE id = $this->id";
+            $sql = "UPDATE team SET name = '$this->name', winrate = $this->winrate, logo = '$this->logo', owner = $this->owner WHERE id = $this->id";
             Database::getConnection()->query($sql);
         }
     }
@@ -51,7 +51,7 @@ class Team{
         }
     }
 
-    public static function search(int $id, string $name, string $owner): array{
+    public static function search(int $id, string $name, int $owner): array{
         // crias o comando sql principal
         $sql = "SELECT ID FROM USER WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id

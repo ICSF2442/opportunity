@@ -55,10 +55,10 @@ use Functions\Database;
      {
          if ($this->id == null) {
              $this->id = Database::getNextIncrement("user");
-             $sql = "INSERT INTO user(id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES($this->id,'$this->username','$this->email',$this->birthday,'$this->password',$this->winrate,$this->dev,'$this->image',$this->team,$this->status,$this->role)";
+             $sql = "INSERT INTO user(id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',$this->team,$this->status,$this->role)";
              Database::getConnection()->query($sql);
          }else{
-            $sql = "UPDATE user SET username = $this->username, email = $this->email, password = $this->password, birthday = $this->birthday, winrate = $this->winrate, dev=$this->dev, image = $this->image, team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
+            $sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
             Database::getConnection()->query($sql);
          }
 
@@ -72,15 +72,15 @@ use Functions\Database;
          }
      }
 
-     public static function search(int $id = null, string $name = null, string $email = null): array{
+     public static function search(int $id = null, string $username = null, string $email = null): array{
          // crias o comando sql principal
          $sql = "SELECT ID FROM USER WHERE 1=1";
          // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
          if($id != null){
              $sql .= " and (id = $id)";
          }
-         if($name != null){
-             $sql .= " and (username = '$name')";
+         if($username != null){
+             $sql .= " and (username = '$username')";
          }
          if($email != null){
              $sql .= " and (email = '$email')";
