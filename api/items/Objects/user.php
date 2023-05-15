@@ -51,27 +51,41 @@ use Functions\Database;
          }
      }
 
-     public function store(): void
-     {
-         $this->id = 2;
-         $this->username = "a";
-         $database = Database::getConnection();
-         $query = $database->query("SELECT * FROM user WHERE id = $this->id;");
-         $teste = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
-         $teste = $query->fetch_array(MYSQLI_ASSOC);
-         var_dump($teste);
+     public function store(): void{
+
+         $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
 
          if ($this->id == null) {
              $this->id = Database::getNextIncrement("user");
-             $this->id = 15;
-             $this->{"id"} = 18;
-             echo $this->id;
-             $sql = "INSERT INTO user (id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES ($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',".($this->team == null ? "NULL" : "'$this->team'").",$this->status,$this->role)";
-             echo ($sql);
+             $sql = "INSERT INTO USER ";
+             $columns = "";
+             $values = "";
+             foreach ($fields as $field){
+                 $columns .= ", " . $field;
+                 $values .= ", " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+             }
+             $columns = substr($columns, 2);
+             $values = substr($values, 2);
+             $sql = "INSERT INTO USER ($columns) VALUES ($values);";
+             //$sql = "INSERT INTO user (id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES ($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',".($this->team == null ? "NULL" : "'$this->team'").",$this->status,$this->role)";
+             //echo ($sql);
              Database::getConnection()->query($sql);
          }else{
-            $sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
-            Database::getConnection()->query($sql);
+             $values = "";
+             $sql = "UPDATE USER ";
+             foreach ($fields as $field){
+                 $values .= ",".$field." = " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+             }
+
+             $values = substr($values, 1);
+             // agora é fazer a mesma lógica para o update, soq o update é mais fácil xd, fazes a logica de so um
+             // tu ainda pds mlhrar isto e fazer por reflexão, em vez de teres q escrever os fields em si
+             // gl, bye-bye kururin wq
+             $sql = "UPDATE user SET ($values) WHERE id = $this->id";
+
+           //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
+             echo($sql);
+           Database::getConnection()->query($sql);
          }
 
      }
