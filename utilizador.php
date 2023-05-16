@@ -11,10 +11,11 @@
 
 </head>
 <title>Opportunity</title>
-<body>
+<body style="background: rgb(10, 20, 104) ;
+    overflow-x: hidden;">
 
-<section style="background-color: #5A5A5A;">
-    <div class="container py-5">
+
+    <div class="container py-0 p-2 sticky-top">
         <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
@@ -26,158 +27,176 @@
                 </nav>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center">
-                        <img src="" alt="avatar"
-                             class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-3">Nome do jogador</h5>
-                        <p class="text-muted mb-1">Role:</p>
+
+
+<main>
+
+<div class="row" >
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <img src="imagens/userPLACEHOLDER.png" alt="avatar"
+                     class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3">Nome do jogador</h5>
+                <p class="text-muted mb-1">Role:</p>
+            </div>
+        </div>
+
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Mudar Credenciais
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mudança de credenciais</h4>
+                        <button type="button" class="close" data-dismiss="modal">x</button>
                     </div>
-                </div>
 
-                <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    Mudar Credenciais
-                </button>
+                    <!-- Modal body -->
+                    <div class="modal-body">
 
-                <!-- The Modal -->
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
 
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Mudança de credenciais</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div>
-                                <input name="email" type="email" placeholder="Email">
-                                </div>
-                                <div>
-                                <input name="password" type="password" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
+                        <div>
+                            <input name="nome" type="text" placeholder="Nome">
                         </div>
+
+                        <div>
+                            <input name="email" type="email" placeholder="Email">
+                        </div>
+
+                        <div><input name="password" type="password" placeholder="Password">
+                        </div>
+
+                        <div>
+                            <input name="birthday" type="date">
+                        </div>
+
+                    </div>
+
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Full Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">Nome do jogador</p>
                     </div>
                 </div>
-
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">example@example.com</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Status</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">A jogar</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Data de nascimento</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">03/04/2000</p>
+                    </div>
+                </div>
 
             </div>
-            <div class="col-lg-8">
-                <div class="card mb-4">
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-5">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Full Name</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">Nome do jogador</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Email</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">example@example.com</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Status</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">A jogar</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Data de nascimento</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">03/04/2000</p>
-                            </div>
-                        </div>
+                        <p class="mb-4"><span class="text-primary font-italic me-1">Equipa:</span>
+                        </p>
+                        <div class="col-lg-8">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Top</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">Nome do jogador</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Jungle</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">example@example.com</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Mid</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">A jogar</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">ADC</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">03/04/2000</p>
+                                        </div>
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card mb-5">
-                            <div class="card-body">
-                                <p class="mb-4"><span class="text-primary font-italic me-1">Equipa:</span>
-                                </p>
-                                <div class="col-lg-8">
-                                    <div class="card mb-4">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Top</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Nome do jogador</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Jungle</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">example@example.com</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Mid</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">A jogar</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">ADC</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">03/04/2000</p>
-                                                </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Support</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">03/04/2000</p>
+                                        </div>
 
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Support</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">03/04/2000</p>
-                                                </div>
-
-                                            </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+
+</main>
 </body>
 </html>
