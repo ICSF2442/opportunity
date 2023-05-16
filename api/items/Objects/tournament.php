@@ -79,6 +79,8 @@ class Tournament{
         }
     }
 
+
+
     public function remove(): void
     {
         if ($this->id != null){
@@ -91,6 +93,25 @@ class Tournament{
         if ($id != null){
             $sql = "DELETE FROM tournament WHERE id = $id";
             Database::getConnection()->query($sql);
+        }
+    }
+    public static function find(int $id = null, string $name = null, int $status = null): int{
+        $sql = "SELECT id FROM tournament WHERE 1=1";
+        if($id != NULL){
+            $sql .= "AND (id = $id)";
+        }
+        if($name != NULL){
+            $sql .= "AND (username = $name)";
+        }
+        if($status != NULL){
+            $sql .= "AND (email = $status)";
+        }
+        $query = Database::getConnection()->query($sql);
+
+        if ($query->num_rows > 0) {
+            return 1;
+        }else{
+            return 0;
         }
     }
 

@@ -88,6 +88,26 @@ private ?DateTime $tempo_inicio= null ;
         }
     }
 
+    public static function find(int $id = null, string $team = null, int $status = null): int{
+        $sql = "SELECT id FROM tournament WHERE 1=1";
+        if($id != NULL){
+            $sql .= "AND (id = $id)";
+        }
+        if($team != NULL){
+            $sql .= "AND (username = $team)";
+        }
+        if($status != NULL){
+            $sql .= "AND (email = $status)";
+        }
+        $query = Database::getConnection()->query($sql);
+
+        if ($query->num_rows > 0) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
     public static function search(int $id = null, int $team = null, int $status = null): array{
         // crias o comando sql principal
         $sql = "SELECT id FROM game WHERE 1=1";

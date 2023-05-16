@@ -83,6 +83,25 @@ class Team{
             Database::getConnection()->query($sql);
         }
     }
+    public static function find(int $id = null, string $name = null, int $owner = null): int{
+        $sql = "SELECT id FROM team WHERE 1=1";
+        if($id != NULL){
+            $sql .= "AND (id = $id)";
+        }
+        if($name != NULL){
+            $sql .= "AND (username = $name)";
+        }
+        if($owner != NULL){
+            $sql .= "AND (email = $owner)";
+        }
+        $query = Database::getConnection()->query($sql);
+
+        if ($query->num_rows > 0) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     public static function search(int $id, string $name, int $owner): array{
         // crias o comando sql principal

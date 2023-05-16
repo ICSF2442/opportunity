@@ -59,6 +59,7 @@ use Functions\Database;
          $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
 
          if ($this->id == null) {
+
              $this->id = Database::getNextIncrement("user");
 
              $sql = "INSERT INTO USER ";
@@ -75,6 +76,7 @@ use Functions\Database;
              //echo ($sql);
              Database::getConnection()->query($sql);
          }else{
+
              $values = "";
              $sql = "UPDATE USER ";
              foreach ($fields as $field){
@@ -102,11 +104,32 @@ use Functions\Database;
          }
      }
 
+     public static function find(int $id = null, string $username = null, string $email = null): int{
+         $sql = "SELECT id FROM USER WHERE 1=1";
+         if($id != NULL){
+             $sql .= "AND (id = $id)";
+         }
+         if($username != NULL){
+             $sql .= "AND (username = $username)";
+         }
+         if($email != NULL){
+             $sql .= "AND (email = $email)";
+         }
+         $query = Database::getConnection()->query($sql);
+
+         if ($query->num_rows > 0) {
+             return 1;
+         }else{
+             return 0;
+         }
+     }
+
      public static function remover(int $id): void
      {
          if ($id != null){
              $sql = "DELETE FROM user WHERE id = $id";
              Database::getConnection()->query($sql);
+
          }
      }
 
