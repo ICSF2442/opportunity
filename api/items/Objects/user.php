@@ -34,9 +34,12 @@ use Functions\Database;
      {
          if ($id != null && Database::getConnection() != null) {
              $database = Database::getConnection();
-             $query = $database->query("SELECT * FROM user WHERE id = $id;");
+             $sql1 = "SELECT * FROM user WHERE id = $id;";
+             $query = $database->query("SELECT * FROM user WHERE id = ".$id);
+
              if ($query->num_rows > 0) {
                  $row = $query->fetch_array(MYSQLI_ASSOC);
+                 $this->id = $row["id"];
                  $this->username = $row["username"];
                  $this->email = $row["email"];
                  $this->password = $row["password"];
@@ -56,6 +59,7 @@ use Functions\Database;
          $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
 
          if ($this->id == null) {
+
              $this->id = Database::getNextIncrement("user");
 
              $sql = "INSERT INTO USER ";
@@ -72,6 +76,7 @@ use Functions\Database;
              //echo ($sql);
              Database::getConnection()->query($sql);
          }else{
+
              $values = "";
              $sql = "UPDATE USER ";
              foreach ($fields as $field){
@@ -85,7 +90,7 @@ use Functions\Database;
              $sql = "UPDATE user SET $values WHERE id = $this->id";
 
            //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
-             echo($sql);
+             //echo($sql);
            Database::getConnection()->query($sql);
          }
 
@@ -99,17 +104,38 @@ use Functions\Database;
          }
      }
 
+     public static function find(int $id = null, string $username = null, string $email = null): int{
+         $sql = "SELECT id FROM USER WHERE 1=1";
+         if($id != NULL){
+             $sql .= "AND (id = $id)";
+         }
+         if($username != NULL){
+             $sql .= "AND (username = $username)";
+         }
+         if($email != NULL){
+             $sql .= "AND (email = $email)";
+         }
+         $query = Database::getConnection()->query($sql);
+
+         if ($query->num_rows > 0) {
+             return 1;
+         }else{
+             return 0;
+         }
+     }
+
      public static function remover(int $id): void
      {
          if ($id != null){
              $sql = "DELETE FROM user WHERE id = $id";
              Database::getConnection()->query($sql);
+
          }
      }
 
      public static function search(int $id = null, string $username = null, string $email = null): array{
          // crias o comando sql principal
-         $sql = "SELECT ID FROM USER WHERE 1=1";
+         $sql = "SELECT id FROM USER WHERE 1=1";
          // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
          if($id != null){
              $sql .= " and (id = $id)";
@@ -124,6 +150,7 @@ use Functions\Database;
          $ret = array();
          // executa o comando sql dinamico
          $query = Database::getConnection()->query($sql);
+        // echo $sql;
 
          if ($query->num_rows > 0) {
              // se o comando sql for maior que 0 irá percorrer o array de ids
@@ -133,6 +160,8 @@ use Functions\Database;
                  $ret[] = new User($row["id"]);
              }
          }
+         var_dump($ret);
+
          // retorno o array com os objetos, caso haja objetos
          return $ret;
 

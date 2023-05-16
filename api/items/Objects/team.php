@@ -24,6 +24,7 @@ class Team{
             $query = $database->query("SELECT * FROM team WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
+                $this->id = $row["id"];
                 $this->name = $row["name"];
                 $this->winrate = $row["winrate"];
                 $this->logo = $row["logo"];
@@ -82,10 +83,29 @@ class Team{
             Database::getConnection()->query($sql);
         }
     }
+    public static function find(int $id = null, string $name = null, int $owner = null): int{
+        $sql = "SELECT id FROM team WHERE 1=1";
+        if($id != NULL){
+            $sql .= "AND (id = $id)";
+        }
+        if($name != NULL){
+            $sql .= "AND (username = $name)";
+        }
+        if($owner != NULL){
+            $sql .= "AND (email = $owner)";
+        }
+        $query = Database::getConnection()->query($sql);
+
+        if ($query->num_rows > 0) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     public static function search(int $id, string $name, int $owner): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM USER WHERE 1=1";
+        $sql = "SELECT id FROM USER WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";

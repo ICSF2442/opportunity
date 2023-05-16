@@ -32,6 +32,7 @@ class Tournament{
             $query = $database->query("SELECT * FROM tournament WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
+                $this->id = $row["id"];
                 $this->name = $row["name"];
                 $this->status = $row["status"];
                 $this->image = $row["image"];
@@ -78,6 +79,8 @@ class Tournament{
         }
     }
 
+
+
     public function remove(): void
     {
         if ($this->id != null){
@@ -92,10 +95,29 @@ class Tournament{
             Database::getConnection()->query($sql);
         }
     }
+    public static function find(int $id = null, string $name = null, int $status = null): int{
+        $sql = "SELECT id FROM tournament WHERE 1=1";
+        if($id != NULL){
+            $sql .= "AND (id = $id)";
+        }
+        if($name != NULL){
+            $sql .= "AND (username = $name)";
+        }
+        if($status != NULL){
+            $sql .= "AND (email = $status)";
+        }
+        $query = Database::getConnection()->query($sql);
+
+        if ($query->num_rows > 0) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
     public static function search(int $id = null, string $name = null, int $status = null): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM tournament WHERE 1=1";
+        $sql = "SELECT id FROM tournament WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";
