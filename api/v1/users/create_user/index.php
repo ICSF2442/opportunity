@@ -45,7 +45,7 @@ $jogo->setTournament(1);
 
 $jogo->store();
 
-
+User::search(1);
 
 
 

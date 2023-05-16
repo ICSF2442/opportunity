@@ -32,6 +32,7 @@ class Tournament{
             $query = $database->query("SELECT * FROM tournament WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
+                $this->id = $row["id"];
                 $this->name = $row["name"];
                 $this->status = $row["status"];
                 $this->image = $row["image"];
@@ -95,7 +96,7 @@ class Tournament{
 
     public static function search(int $id = null, string $name = null, int $status = null): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM tournament WHERE 1=1";
+        $sql = "SELECT id FROM tournament WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";

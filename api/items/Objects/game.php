@@ -28,6 +28,7 @@ private ?DateTime $tempo_inicio= null ;
             $query = $database->query("SELECT * FROM game WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
+                $this->id = $row["id"];
                 $this->tournament = $row["tournament"];
                 $this->team1 = $row["team1"];
                 $this->team2 = $row["team2"];
@@ -89,7 +90,7 @@ private ?DateTime $tempo_inicio= null ;
 
     public static function search(int $id = null, int $team = null, int $status = null): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM game WHERE 1=1";
+        $sql = "SELECT id FROM game WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";

@@ -24,6 +24,7 @@ class Team{
             $query = $database->query("SELECT * FROM team WHERE id = $id;");
             if ($query->num_rows > 0) {
                 $row = $query->fetch_array(MYSQLI_ASSOC);
+                $this->id = $row["id"];
                 $this->name = $row["name"];
                 $this->winrate = $row["winrate"];
                 $this->logo = $row["logo"];
@@ -85,7 +86,7 @@ class Team{
 
     public static function search(int $id, string $name, int $owner): array{
         // crias o comando sql principal
-        $sql = "SELECT ID FROM USER WHERE 1=1";
+        $sql = "SELECT id FROM USER WHERE 1=1";
         // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
         if($id != null){
             $sql .= " and (id = $id)";
