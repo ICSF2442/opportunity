@@ -7,19 +7,19 @@ use DateTime;
 use Functions\Database;
 class game
 {
-private ?int $id;
+private ?int $id= null;
 
-private ?int $tournament;
+private ?int $tournament= null;
 
-private ?int $team1;
+private ?int $team1= null;
 
-private ?int $team2;
+private ?int $team2= null;
 
-private ?int $status;
+private ?int $status= null;
 
-private ?int $winner;
+private ?int $winner= null;
 
-private ?DateTime $tempo_inicio;
+private ?DateTime $tempo_inicio= null ;
 
     public function __construct(int $id = null)
     {
@@ -39,12 +39,34 @@ private ?DateTime $tempo_inicio;
     }
 
     public function store() : void{
+        $fields = array("id","tournament","team1","team2","status","winner","tempo_inicio");
         if ($this->id == null) {
-            $this->id = Database::getNextIncrement("team");
-            $sql = "INSERT INTO game(id,tournament,team1,team2,status,winner,tempo_inicio) VALUES($this->id, $this->tournament, $this->team1, $this->team2,$this->status,$this->winner,'$this->tempo_inicio')";
+            $this->id = Database::getNextIncrement("game");
+            $sql = "INSERT INTO GAME ";
+            $columns = "";
+            $values = "";
+            foreach ($fields as $field){
+                $columns .= ", " . $field;
+                $values .= ", " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+            }
+            $columns = substr($columns, 2);
+            $values = substr($values, 2);
+            $sql = "INSERT INTO GAME ($columns) VALUES ($values);";
             Database::getConnection()->query($sql);
         }else{
-            $sql = "UPDATE game SET tournament = $this->tournament, team1 = $this->team1, team2 = $this->team2, status = $this->status, winner = $this->winner, tempo_inicio = '$this->tempo_inicio' WHERE id = $this->id";
+            $values = "";
+            foreach ($fields as $field){
+                $values .= ",".$field." = " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+            }
+
+            $values = substr($values, 1);
+            // agora é fazer a mesma lógica para o update, soq o update é mais fácil xd, fazes a logica de so um
+            // tu ainda pds mlhrar isto e fazer por reflexão, em vez de teres q escrever os fields em si
+            // gl, bye-bye kururin wq
+            $sql = "UPDATE GAME SET $values WHERE id = $this->id";
+
+            //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
+            echo($sql);
             Database::getConnection()->query($sql);
         }
     }
@@ -53,6 +75,14 @@ private ?DateTime $tempo_inicio;
     {
         if ($this->id != null){
             $sql = "DELETE FROM game WHERE id = $this->id";
+            Database::getConnection()->query($sql);
+        }
+    }
+
+    public static function remover(int $id): void
+    {
+        if ($id != null){
+            $sql = "DELETE FROM team WHERE id = $id";
             Database::getConnection()->query($sql);
         }
     }

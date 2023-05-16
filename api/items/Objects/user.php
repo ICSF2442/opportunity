@@ -57,6 +57,7 @@ use Functions\Database;
 
          if ($this->id == null) {
              $this->id = Database::getNextIncrement("user");
+
              $sql = "INSERT INTO USER ";
              $columns = "";
              $values = "";
@@ -81,7 +82,7 @@ use Functions\Database;
              // agora é fazer a mesma lógica para o update, soq o update é mais fácil xd, fazes a logica de so um
              // tu ainda pds mlhrar isto e fazer por reflexão, em vez de teres q escrever os fields em si
              // gl, bye-bye kururin wq
-             $sql = "UPDATE user SET ($values) WHERE id = $this->id";
+             $sql = "UPDATE user SET $values WHERE id = $this->id";
 
            //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
              echo($sql);
@@ -94,6 +95,14 @@ use Functions\Database;
      {
          if ($this->id != null){
              $sql = "DELETE FROM user WHERE id = $this->id";
+             Database::getConnection()->query($sql);
+         }
+     }
+
+     public static function remover(int $id): void
+     {
+         if ($id != null){
+             $sql = "DELETE FROM user WHERE id = $id";
              Database::getConnection()->query($sql);
          }
      }
@@ -115,6 +124,7 @@ use Functions\Database;
          $ret = array();
          // executa o comando sql dinamico
          $query = Database::getConnection()->query($sql);
+
          if ($query->num_rows > 0) {
              // se o comando sql for maior que 0 irá percorrer o array de ids
              while($row = $query->fetch_array(MYSQLI_ASSOC)){

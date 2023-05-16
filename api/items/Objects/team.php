@@ -7,15 +7,15 @@ use Functions\Database;
 
 class Team{
 
-    private ?int $id;
+    private ?int $id = null;
 
-    private ?string $name;
+    private ?string $name= null;
 
-    private float $winrate;
+    private ?float $winrate = null;
 
-    private ?Blob $logo;
+    private ?Blob $logo= null;
 
-    private ?int $owner;
+    private ?int $owner= null;
 
     public function __construct(int $id = null)
     {
@@ -33,12 +33,36 @@ class Team{
     }
 
     public function store() : void{
+        $fields = array("id","name","winrate","logo","owner");
+
+
         if ($this->id == null) {
             $this->id = Database::getNextIncrement("team");
-            $sql = "INSERT INTO team(id,name,winrate,logo,owner) VALUES($this->id, '$this->name', $this->winrate, '$this->logo',$this->owner)";
+            $sql = "INSERT INTO TEAM ";
+            $columns = "";
+            $values = "";
+            foreach ($fields as $field){
+                $columns .= ", " . $field;
+                $values .= ", " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+            }
+            $columns = substr($columns, 2);
+            $values = substr($values, 2);
+            $sql = "INSERT INTO TEAM ($columns) VALUES ($values);";
             Database::getConnection()->query($sql);
         }else{
-            $sql = "UPDATE team SET name = '$this->name', winrate = $this->winrate, logo = '$this->logo', owner = $this->owner WHERE id = $this->id";
+            $values = "";
+            foreach ($fields as $field){
+                $values .= ",".$field." = " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
+            }
+
+            $values = substr($values, 1);
+            // agora é fazer a mesma lógica para o update, soq o update é mais fácil xd, fazes a logica de so um
+            // tu ainda pds mlhrar isto e fazer por reflexão, em vez de teres q escrever os fields em si
+            // gl, bye-bye kururin wq
+            $sql = "UPDATE TEAM SET $values WHERE id = $this->id";
+
+            //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
+            echo($sql);
             Database::getConnection()->query($sql);
         }
     }
@@ -47,6 +71,14 @@ class Team{
     {
         if ($this->id != null){
             $sql = "DELETE FROM team WHERE id = $this->id";
+            Database::getConnection()->query($sql);
+        }
+    }
+
+    public static function remover(int $id): void
+    {
+        if ($id != null){
+            $sql = "DELETE FROM team WHERE id = $id";
             Database::getConnection()->query($sql);
         }
     }
