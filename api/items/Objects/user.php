@@ -19,7 +19,7 @@ use Functions\Database;
 
      private ?float $winrate = null;
 
-     private ?int $dev = null;
+     private ?int $dev = 0;
 
      private ?Blob $image = null;
 
