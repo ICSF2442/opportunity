@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                    <ol class="breadcrumb mb-0">
+                    <ol class="breadcrumb mb-0" style="background-color: midnightblue">
                         <li class="breadcrumb-item"><a href="home.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="utilizador.php">User</a></li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
@@ -98,7 +98,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3">
-                        <p class="mb-0">Full Name</p>
+                        <p class="mb-0">Nome</p>
                     </div>
                     <div class="col-sm-9">
                         <p class="text-muted mb-0">Nome do jogador</p>

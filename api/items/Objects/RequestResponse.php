@@ -68,7 +68,21 @@ class RequestResponse
         return $this;
     }
 
+<<<<<<< HEAD
     
+=======
+    public function resposta(): string|bool
+    {
+        return json_encode(array(
+            "result" => $this->result,
+            "isError" => $this->isError,
+            "error" => $this->error
+        ));
+    }
+
+
+
+>>>>>>> origin/main
 
 
 }
