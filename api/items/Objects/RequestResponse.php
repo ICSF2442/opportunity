@@ -68,6 +68,16 @@ class RequestResponse
         return $this;
     }
 
+    public function resposta(): string|bool
+    {
+        return json_encode(array(
+            "result" => $this->result,
+            "isError" => $this->isError,
+            "error" => $this->error
+        ));
+    }
+
+
 
 
 

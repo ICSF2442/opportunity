@@ -34,7 +34,6 @@ use Functions\Database;
      {
          if ($id != null && Database::getConnection() != null) {
              $database = Database::getConnection();
-             $sql1 = "SELECT * FROM user WHERE id = $id;";
              $query = $database->query("SELECT * FROM user WHERE id = ".$id);
 
              if ($query->num_rows > 0) {
