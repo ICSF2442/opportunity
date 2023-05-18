@@ -69,7 +69,7 @@ class RequestResponse
     }
 
 
-    public function resposta(): string|bool
+    public function response(): string|bool
     {
         return json_encode(array(
             "result" => $this->result,

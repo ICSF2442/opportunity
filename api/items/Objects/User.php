@@ -52,6 +52,19 @@ use Functions\Database;
              }
          }
      }
+     public function toArray(): array{
+         $array = array("id" => $this->id,
+             "username" => $this->username,
+             "winrate"=> $this->winrate,
+             "dev"=> $this->dev,
+             "image"=>$this->image,
+             "team"=>$this->team,
+             "status"=>$this->status,
+             "role"=>$this->role);
+
+         return $array;
+
+     }
 
      public function store(): void{
 

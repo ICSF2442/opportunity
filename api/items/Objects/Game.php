@@ -5,7 +5,7 @@ namespace Objects;
 
 use DateTime;
 use Functions\Database;
-class game
+class Game
 {
 private ?int $id= null;
 
