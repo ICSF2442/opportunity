@@ -68,9 +68,7 @@ class RequestResponse
         return $this;
     }
 
-<<<<<<< HEAD
-    
-=======
+
     public function resposta(): string|bool
     {
         return json_encode(array(
@@ -79,10 +77,7 @@ class RequestResponse
             "error" => $this->error
         ));
     }
-
-
-
->>>>>>> origin/main
+    
 
 
 }
