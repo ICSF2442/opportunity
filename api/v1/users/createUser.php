@@ -54,7 +54,7 @@ if($json == null){
         }
 
         $user->store();
-        $_SESSION = $user->toArray();
+        $_SESSION["user"] = $user;
         var_dump($request->setResult($user->toArray())->response());
 
 
