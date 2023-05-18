@@ -44,6 +44,18 @@ class Tournament{
             }
         }
     }
+    public function toArray(): array{
+        $array = array("id" => $this->id,
+            "username" => $this->name,
+            "status"=> $this->status,
+            "image"=> $this->image,
+            "logo"=>$this->logo,
+            "size"=>$this->size,
+            "winner"=>$this->winner,
+            "tempo_inicio"=>$this->tempo_inicio);
+
+        return $array;
+    }
 
     public function store() : void{
 

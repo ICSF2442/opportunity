@@ -32,6 +32,15 @@ class Team{
             }
         }
     }
+    public function toArray(): array{
+        $array = array("id" => $this->id,
+            "name" => $this->name,
+            "winrate"=> $this->winrate,
+            "logo"=>$this->logo,
+            "owner"=>$this->owner);
+
+        return $array;
+    }
 
     public function store() : void{
         $fields = array("id","name","winrate","logo","owner");
