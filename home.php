@@ -38,9 +38,7 @@ session_start();
           </div>
       </div>
   </div>
-  <video autoplay muted loop id="myVideo">
-      <source src="imagens/lol2016.mp4" type="video/mp4">
-  </video>
+
   <div class="container text-center">
       <img src="imagens/Logo_Opportunity.png" alt="Logo" style="width: 100px;" class="mx-auto d-block">
   </div>
@@ -70,6 +68,11 @@ session_start();
 
           <p> &nbsp;Opportunity</p>
     </div>
+
+  <div class="container text-center">
+      <h3>Play of the Day</h3>
+      <video src="imagens/video.mp4" width="320" height="240" controls autoplay></video>
+  </div>
 
   </body>
 </html>
