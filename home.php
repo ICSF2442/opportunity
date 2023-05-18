@@ -31,8 +31,8 @@ session_start();
                       <li class="breadcrumb-item ml-auto"></li>
                           <h3 class="text-white">Opportunity</h3>
 
-                      <li class="breadcrumb-item ml-auto"><a href="login.php">Login</a></li>
-                      <li class="breadcrumb-item"><a href="create.php">Register</a></li>
+                      <li class="breadcrumb-item ml-auto"><a href="login/index.php">Login</a></li>
+                      <li class="breadcrumb-item"><a href="register/index.php">Register</a></li>
                   </ol>
               </nav>
           </div>
