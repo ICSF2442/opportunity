@@ -18,7 +18,7 @@
     <div class="container py-0 p-2 sticky-top">
         <div class="row">
             <div class="col">
-                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="padding: 5px!important; ">
                     <ol class="breadcrumb mb-0" style="background-color: midnightblue">
                         <li class="breadcrumb-item"><a href="home.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="utilizador.php">User</a></li>

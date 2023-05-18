@@ -1,166 +1,93 @@
-<?php
-require_once("api/items/Functions/Database.php");
-
-use Cassandra\Blob;
-use Functions\Database;
-
-//initialize session
-session_start();
-
-// PHP charset
-ini_set('default_charset', 'UTF-8');
-
-
-// intialize variables
-$nomeErr = $emailErr = $passwordErr= "";
-$nome = $email = $password = $hidden = $disabled = "";
-
-// "cleaning data"
-function test_input($dados) {
-	$dados = trim($dados);
-	$dados = stripslashes($dados);
-	$dados = htmlspecialchars($dados);
-	return $dados;
-  }
-
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-	if (empty($_POST["nome"])) {
-		$nomeErr = "Nome é obrigatório!";
-	  } else {
-      $nome = test_input($_POST["nome"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^([^[:punct:]\d]+)$/",$nome)) {
-        $nomeErr = "Somente letras e espaços em branco permitidos.";
-      }
-	  }
-	  
-	  if (empty($_POST["email"])) {
-		$emailErr = "Email é obrigatório!";
-	  } else {
-      $email = test_input($_POST["email"]);
-      // verifica o formato do email
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Formato de email invalido!";
-      }
-    }
-
-    
-    if (strlen($_POST["password"]) < 8) {    
-      $passwordErr = "Password tem de ter pelo menos 8 caracteres!";
-      } elseif ($_POST["password"] != $_POST["rpassword"]){
-        $passwordErr = "Passwords não coencidem!";
-        } else { 
-          $password = test_input($_POST["password"]);
-      }
-
-	if ($nomeErr =="" AND $emailErr == "" AND $passwordErr == ""){
-		$query = "INSERT INTO user (username, email, password);
-		VALUES ('$nome',  '$email', '$password')";
-        Database::getConnection()->query($query);
-    $disabled = "disabled";
-    $hidden = "hidden";
-	}
-
-}
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="css/csscreate.css" rel="stylesheet">
-    <!-- insert here the reference to stylesheet file -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/csscreate.css">
     <title>Opportunity</title>
-  </head>
+</head>
 
-  <body>
-  <header>
-      <!-- navigation bar -->
-      <nav>
+<body>
 
+<div class="container py-0 p-2 sticky-top">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="padding: 5px!important; ">
 
-          <div class="button-container">
-              <a href="login.php"><button>Login</button></a>
-              <a href="home.php"><button>Home</button></a>
-          </div>
-      </nav>
-      <!-- /.navigation bar -->
-    </header>
-    <main>
+                <ol class="breadcrumb mb-0" style="background-color: midnightblue">
+                    <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="create.php">Register</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pagina registro</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
 
-      <div><!-- info -->
-        <?php
-          if($_SERVER["REQUEST_METHOD"] == "POST" AND $nomeErr =="" AND $emailErr == "" AND $passwordErr =="") {
-        ?>
-          <div>
-            <h4 >Parabens!</h4>
-            <hr>
-            Foi registado com sucesso!
-          </div>
-        <?php
-            }	
-        ?>
-        <?php if($nomeErr !="" OR $emailErr != "" OR $passwordErr !="") { ?>
-          <div>
-              <h4>Erro!</h4>
-              <hr>
-              <p><?PHP echo $nomeErr ?></p>
-              <p><?PHP echo $emailErr ?></p>
-              <p><?PHP echo $passwordErr ?></p>
-          </div>
-        <?php }	?>
-      </div><!-- /.info -->
-      <div><!-- contentor do formulario --> 
-        <form name="frmInserir" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <div class="createbox">
-            <div>
-                <img src="imagens/Logo_Opportunity3.png" class="avatar">
-                <label>Name </label>
-              <div >
-                <input name="nome" type="text" value="<?php echo $nome;?>" placeholder="Name" <?php echo $disabled ?>>
-              </div>
-            </div>
-            <div>
-              <label>Email </label>
-              <div>
-                <input name="email" type="email" value="<?php echo $email;?>" placeholder="Email" <?php echo $disabled ?>>
-              </div>
-            </div>
-            <div <?php echo $hidden ?>>
-              <label>Password </label>
-              <div>
-                <input name="password" type="password" placeholder="Password [min. 5 characters]"/>
-              </div>
-            </div>
-            <div <?php echo $hidden ?>>
-              <label>Repeat password </label>
-              <div>
-                <input name="rpassword" type="password" placeholder="Repeat password"/>
-              </div>
-            </div>
-            <div>
-            <label>Birthday</label>
-              <div>
-                <input name="birthday" type="date" <?php echo $disabled ?>>
-              </div>
-            </div>
-            <div>
-              <div>
-                <div>	
-                  <button name="gravar" type="submit" <?php echo $disabled ?>>Save</button>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center" >
+        <div class="col-md-4">
+            <div class="card" style="margin-top: 20px; background-color: midnightblue; color: white; >
+                <div class="card-body mt-xl-5" >
+            <div class="d-flex justify-content-center" >
+                <div class="brand_logo_container">
+                    <img class="rounded-circle" src="imagens/Logo_Opportunity3.png" class="brand_logo" alt="Logo">
                 </div>
-              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <form>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="username" class="form-control input_user" value="" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="email" name="email" class="form-control input_user" value="" placeholder="Email">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="rpassword" class="form-control input_user" value="" placeholder="Repetir password">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="date" name="data" class="form-control input_user" value="" >
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button1 type="button" name="button" class="btn btn-primary">Submit</button1>
+                    </div>
+
+                    <div style="visibility: hidden">
+                        <p4> Isto é um espaço</p4>
+                    </div>
+
+
+                </form>
             </div>
         </div>
-        </form>
-      </div>
-    </main>
-  </body>
-</html>
+    </div>
+</div>
+
+</body>
