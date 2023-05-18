@@ -31,19 +31,18 @@ if($json == null){
 
         if(User::find(NULL,NULL,$user->getEmail(),$user->getPassword()) == 1){
 
-            $ret = User::search(NULL,NULL,$email);
-            $user -> setId($ret["id"]);
-            $user->setBirthday($ret["birthday"]);
-            $user->setUsername($ret["username"]);
+            $ret = User::search(NULL,NULL,$user->getEmail(),$user->getPassword());
+            $user -> setId($ret[0]->getId());
+            $user ->setUsername($ret[0]->getUsername());
             $request->setResult($user->toArray());
-            $request->response();
+            echo($request->response());
 
 
         }else{
             $request->setResult($user->toArray());
-            $request->setError("Email ou password inválidos!");
+            $request->setError("Email ou password invalidos!");
             $request->setIsError(true);
-            $request->response();
+            var_dump($request->response());
         };
     }
 }
