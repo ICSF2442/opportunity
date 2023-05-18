@@ -9,7 +9,10 @@ function sendRequest(endpoint, data) {
             if (request.status >= 200 && request.status < 300) {
                 if (isJson(request.response)) {
                     let response = JSON.parse(request.response);
-                    resolve(response);
+                    if(response.isError){
+                        reject(response.error);
+                    }
+                    resolve(response.result);
                 }
                 else {
                     console.error(request.response);

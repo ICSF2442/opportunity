@@ -39,7 +39,7 @@ if($json == null){
 
             $request->setError("Email ou password invalidos!");
             $request->setIsError(true);
-            var_dump($request->response());
+            echo($request->response());
         };
     }
 }

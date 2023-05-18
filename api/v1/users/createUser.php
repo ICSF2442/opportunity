@@ -42,14 +42,14 @@ if($json == null){
             $request->setError("Nome de usuário já existe!");
             $request->setIsError(true);
             $request->setResult($user->toArray());
-            var_dump($request);
+            echo($request->response());
             die();
         }
         if (User::find(NULL, NULL, $user->getEmail(), NULL) == 1) {
             $request->setError("Email já usado!");
             $request->setIsError(true);
             $request->setResult($user->toArray());
-            var_dump($request);
+            echo($request->response());
             die();
         }
 

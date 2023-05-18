@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../resources/js/Request.js"></script>
+    <script src="Login.js"></script>
     <link rel="stylesheet" href="../css/csslogin.css">
     <title>Opportunity</title>
 </head>
@@ -46,13 +47,13 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" name="" class="form-control input_user" value="" placeholder="Username">
+                                <input id="email-input"  type="text" name="" class="form-control input_user" value="" placeholder="Email">
                             </div>
                             <div class="input-group mb-2">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" name="" class="form-control input_pass" value="" placeholder="Password">
+                                <input id="password-input" type="password" name="" class="form-control input_pass" value="" placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
@@ -61,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#loginFailureModal">Login</button>
+                                <input type="submit" name="button" class="btn btn-primary" value="Login">
                             </div>
                         </form>
                     </div>
@@ -81,7 +82,7 @@
 </div>
 
 <!-- Login Failure Modal -->
-<div class="modal fade" id="loginFailureModal" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
+<div class="modal fade" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
