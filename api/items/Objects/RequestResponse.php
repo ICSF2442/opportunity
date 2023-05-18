@@ -62,7 +62,7 @@ class RequestResponse
     public function setError(?string $error): RequestResponse
     {
         $this->error = $error;
-        if($error){
+        if(!$error){
             $this->error = null;
         }
         return $this;
