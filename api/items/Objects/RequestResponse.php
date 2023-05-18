@@ -10,7 +10,7 @@ class RequestResponse
     private ?bool $isError = false;
 
     private ?string $error = null;
-
+    
     /**
      * @return mixed
      */
@@ -68,7 +68,7 @@ class RequestResponse
         return $this;
     }
 
-
+    
 
 
 }
