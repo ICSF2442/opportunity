@@ -31,9 +31,9 @@
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center" >
         <div class="col-md-4">
-            <div class="card" style="margin-top: 20px; background-color: midnightblue; color: white; >
-                <div class="card-body mt-xl-5" >
-                    <div class="d-flex justify-content-center" >
+            <div class="card" style="margin-top: 20px; background-color: midnightblue; color: white;">
+                <div class="card-body mt-xl-5">
+                    <div class="d-flex justify-content-center">
                         <div class="brand_logo_container">
                             <img class="rounded-circle" src="imagens/Logo_Opportunity3.png" class="brand_logo" alt="Logo">
                         </div>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="button" name="button" class="btn btn-primary">Login</button>
+                                <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#loginFailureModal">Login</button>
                             </div>
                         </form>
                     </div>
@@ -77,6 +77,27 @@
         </div>
     </div>
 </div>
+
+<!-- Login Failure Modal -->
+<div class="modal fade" id="loginFailureModal" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginFailureModalLabel">Login Failure</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Invalid username or password. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>
