@@ -36,10 +36,32 @@ if($json == null){
         $user = new User();
         $user->setUsername($username);
         $user->setEmail($email);
-        $user->setPassword(hash('sha256',$password));
+        $user->setPassword(hash('sha256', $password));
         $user->setBirthday($birthday);
+        if (User::find(NULL, $user->getUsername(), NULL, NULL) == 1) {
+            $request->setError("Nome de usuário já existe!");
+            $request->setIsError(true);
+            $request->setResult($user->toArray());
+            var_dump($request);
+            die();
+        }
+        if (User::find(NULL, NULL, $user->getEmail(), NULL) == 1) {
+            $request->setError("Email já usado!");
+            $request->setIsError(true);
+            $request->setResult($user->toArray());
+            var_dump($request);
+            die();
+        }
+
         $user->store();
+        $_SESSION = $user->toArray();
         var_dump($request->setResult($user->toArray())->response());
+
+
+    }else{
+        $request->setError("Valores inválidos");
+        $request->setIsError(true);
+        echo($request->response());
     }
 }
 
