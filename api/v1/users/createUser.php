@@ -3,17 +3,17 @@ require_once('./../../settings.php');
 use Functions\Database;
 
 use Functions\Utils;
+use Objects\RequestResponse;
 use Objects\User;
 
 
-$request = new \Objects\RequestResponse();
+$request = new RequestResponse();
 
 $json = Utils::getRequestBody();
 if($json == null){
     echo "ERRO! JSON INVALIDO!";
 
 }else {
-
     $username = null;
     $email = null;
     $password = null;
@@ -36,10 +36,10 @@ if($json == null){
         $user = new User();
         $user->setUsername($username);
         $user->setEmail($email);
-        $user->setPassword(sha1($password));
+        $user->setPassword(hash('sha256',$password));
         $user->setBirthday($birthday);
         $user->store();
-        $request->setResult($user->toArray())->response();
+        var_dump($request->setResult($user->toArray())->response());
     }
 }
 

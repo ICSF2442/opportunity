@@ -116,7 +116,7 @@ use Functions\Database;
          }
      }
 
-     public static function find(int $id = null, string $username = null, string $email = null): int{
+     public static function find(int $id = null, string $username = null, string $email = null, string $password = null): int{
          $sql = "SELECT id FROM USER WHERE 1=1";
          if($id != NULL){
              $sql .= "AND (id = $id)";
@@ -126,6 +126,9 @@ use Functions\Database;
          }
          if($email != NULL){
              $sql .= "AND (email = $email)";
+         }
+         if($password != NULL){
+             $sql .= "AND (password = $password)";
          }
          $query = Database::getConnection()->query($sql);
 
@@ -172,7 +175,7 @@ use Functions\Database;
                  $ret[] = new User($row["id"]);
              }
          }
-         var_dump($ret);
+         //var_dump($ret);
 
          // retorno o array com os objetos, caso haja objetos
          return $ret;
