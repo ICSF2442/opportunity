@@ -38,6 +38,18 @@ private ?DateTime $tempo_inicio= null ;
             }
         }
     }
+    public function toArray(): array{
+        $array = array("id" => $this->id,
+            "tournament" => $this->tournament,
+            "winrate"=> $this->status,
+            "team1"=> $this->team1,
+            "team2"=>$this->team2,
+            "status"=>$this->status,
+            "winner"=>$this->winner,
+            "tempo_inicio"=>$this->tempo_inicio);
+
+        return $array;
+    }
 
     public function store() : void{
         $fields = array("id","tournament","team1","team2","status","winner","tempo_inicio");

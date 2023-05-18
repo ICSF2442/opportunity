@@ -5,6 +5,9 @@ use Functions\Database;
 use Functions\Utils;
 use Objects\User;
 
+
+$request = new \Objects\RequestResponse();
+
 $json = Utils::getRequestBody();
 if($json == null){
     echo "ERRO! JSON INVALIDO!";
@@ -36,6 +39,7 @@ if($json == null){
         $user->setPassword(sha1($password));
         $user->setBirthday($birthday);
         $user->store();
+        $request->setResult($user->toArray())->response();
     }
 }
 
