@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../resources/js/Request.js"></script>
+    <script src="Register.js"></script>
     <link rel="stylesheet" href="../css/csscreate.css">
     <title>Opportunity</title>
 </head>
@@ -41,42 +43,42 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <form>
+                <form id="form-register">
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="username" class="form-control input_user" value="" placeholder="Username">
+                        <input id="username-input" type="text" name="username" class="form-control input_user" value="" placeholder="Username">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="email" name="email" class="form-control input_user" value="" placeholder="Email">
+                        <input id="email-input" type="email" name="email" class="form-control input_user" value="" placeholder="Email">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password">
+                        <input id="password-input" type="password" name="password" class="form-control input_pass" value="" placeholder="Password">
                     </div>
 
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="rpassword" class="form-control input_user" value="" placeholder="Repetir password">
+                        <input id="password-input2" type="password" name="rpassword" class="form-control input_user" value="" placeholder="Repetir password">
                     </div>
 
                     <div class="input-group mb-2">
                         <div class="input-group-append">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="date" name="data" class="form-control input_user" value="" >
+                        <input id="birthday-input" type="date" name="data" class="form-control input_user" value="" >
                     </div>
 
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button1 type="button" name="button" class="btn btn-primary">Submit</button1>
+                        <input type="submit" name="button" class="btn btn-primary" value="Register">
                     </div>
 
                     <div style="visibility: hidden">

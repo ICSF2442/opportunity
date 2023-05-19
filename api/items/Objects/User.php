@@ -29,6 +29,8 @@ use Functions\Database;
 
      private ?int $role = null;
 
+     private ?int $verfication = 0;
+
 
      public function __construct(int $id = null)
      {
@@ -49,6 +51,7 @@ use Functions\Database;
                  $this->team = $row["team"];
                  $this->status = $row["status"];
                  $this->role = $row["role"];
+                 $this->verfication = $row["verification"];
              }
          }
      }
@@ -60,7 +63,8 @@ use Functions\Database;
              "image"=>$this->image,
              "team"=>$this->team,
              "status"=>$this->status,
-             "role"=>$this->role);
+             "role"=>$this->role,
+            "verification"=>$this->verfication);
 
          return $array;
 
@@ -68,7 +72,7 @@ use Functions\Database;
 
      public function store(): void{
 
-         $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role");
+         $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role","verification");
 
          if ($this->id == null) {
 
@@ -116,7 +120,7 @@ use Functions\Database;
          }
      }
 
-     public static function find(int $id = null, string $username = null, string $email = null, string $password = null): int{
+     public static function find(int $id = null, string $username = null, string $email = null, string $password = null, int $verification = null): int{
          $sql = "SELECT id FROM user WHERE 1=1";
          if($id != NULL){
              $sql .= " AND (id = $id)";
@@ -129,6 +133,9 @@ use Functions\Database;
          }
          if($password != NULL){
              $sql .= " AND (password = '$password')";
+         }
+         if($verification != NULL){
+             $sql .= " AND (verification = '$verification')";
          }
          $query = Database::getConnection()->query($sql);
 
@@ -359,6 +366,22 @@ use Functions\Database;
      public function setRole(?int $role): void
      {
          $this->role = $role;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getVerfication(): ?int
+     {
+         return $this->verfication;
+     }
+
+     /**
+      * @param int|null $verfication
+      */
+     public function setVerfication(?int $verfication): void
+     {
+         $this->verfication = $verfication;
      }
 
 
