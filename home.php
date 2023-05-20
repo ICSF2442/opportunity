@@ -71,7 +71,7 @@ session_start();
 
   <div class="container text-center">
       <h3>Play of the Day</h3>
-      <video src="imagens/video.mp4" width="320" height="240" controls autoplay></video>
+      <video src="imagens/video.mp4"  width="800" height="800" controls autoplay muted></video>
   </div>
 
   </body>
