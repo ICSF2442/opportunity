@@ -4,6 +4,7 @@ namespace Objects;
 
 use Cassandra\Blob;
 use Enumerators\Role;
+use Enumerators\Status;
 use Functions\Database;
 
  class User
@@ -65,6 +66,7 @@ use Functions\Database;
              "image"=>$this->image,
              "team"=>$this->team,
              "status"=>$this->status,
+             "statusObj"=> Status::getItem($this->status?->toArray()),
              "role"=>$this->role,
              "roleObj" => Role::getItem($this->role)?->toArray(),
             "verification"=>$this->verification);

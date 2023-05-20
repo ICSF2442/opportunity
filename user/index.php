@@ -132,7 +132,7 @@ if(!isset($_SESSION["user"]) ){
                         <p class="mb-0">Status</p>
                     </div>
                     <div id="status-jogador-text" class="col-sm-9">
-                        <p class="text-muted mb-0">A jogar</p>
+                        <p data-autofill="status" class="text-muted mb-0">A jogar</p>
                     </div>
                 </div>
                 <hr>
