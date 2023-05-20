@@ -16,7 +16,7 @@
     <title>Opportunity</title>
 </head>
 
-<body>
+<body style="overflow: hidden;">
 <div class="container py-0 p-2 sticky-top">
     <div class="row">
         <div class="col">

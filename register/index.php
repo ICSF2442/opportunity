@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
     <title>Opportunity</title>
 </head>
 
-<body>
+<body style="overflow: hidden;">
 
 
 <div class="container py-0 p-2 sticky-top">
