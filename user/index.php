@@ -78,19 +78,47 @@ if(!isset($_SESSION["user"]) ){
 
 
                         <div>
+                            <label for="nome">Username:</label>
                             <input name="nome" type="text" placeholder="Nome">
                         </div>
 
                         <div>
+                            <label for="email">Email:</label>
                             <input name="email" type="email" placeholder="Email">
                         </div>
 
-                        <div><input name="password" type="password" placeholder="Password">
+                        <div>
+                            <label for="password">Password:</label>
+                            <input name="password" type="password" placeholder="Password">
                         </div>
 
                         <div>
+                            <label for="birthday">Data de aniversário:</label>
                             <input name="birthday" type="date">
                         </div>
+
+                        <div>
+                            <label for="status">Status:</label>
+                            <select id="status" name="status">
+                                <option value="null">--Opção--</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                                <option value="reformado">Reformado</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="role">Role:</label>
+                            <select id="status" name="status">
+                                <option value="null">--Opção--</option>
+                                <option value="top">Top</option>
+                                <option value="jung">Jung</option>
+                                <option value="mid">Mid</option>
+                                <option value="adc">Adc</option>
+                                <option value="supp">Supp</option>
+                            </select>
+                        </div>
+
 
                     </div>
 
@@ -161,7 +189,7 @@ if(!isset($_SESSION["user"]) ){
                                             <p class="mb-0">Top</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">Nome do jogador</p>
+                                            <p class="text-muted mb-0">-</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -170,7 +198,7 @@ if(!isset($_SESSION["user"]) ){
                                             <p class="mb-0">Jungle</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">example@example.com</p>
+                                            <p class="text-muted mb-0">-</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -179,7 +207,7 @@ if(!isset($_SESSION["user"]) ){
                                             <p class="mb-0">Mid</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">A jogar</p>
+                                            <p class="text-muted mb-0">-</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -188,7 +216,7 @@ if(!isset($_SESSION["user"]) ){
                                             <p class="mb-0">ADC</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">03/04/2000</p>
+                                            <p class="text-muted mb-0">-</p>
                                         </div>
 
                                     </div>
@@ -198,7 +226,7 @@ if(!isset($_SESSION["user"]) ){
                                             <p class="mb-0">Support</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">03/04/2000</p>
+                                            <p class="text-muted mb-0">-</p>
                                         </div>
 
                                     </div>
