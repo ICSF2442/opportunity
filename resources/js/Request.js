@@ -11,21 +11,28 @@ function sendRequest(endpoint, data) {
                 if (isJson(request.response)) {
                     let response = JSON.parse(request.response);
                     if(response.isError){
+                        throwError(response.error);
                         reject(response.error);
                     }
                     resolve(response.result);
                 }
                 else {
+                    throwError("Não foi possível interpretar a resposta do servidor.");
                     console.error(request.response);
+                    reject({
+                       error: request.response
+                    })
                 }
             }
             else {
+                throwError("Não foi possível processar o seu pedido.");
                 reject({
                     error: request.error
                 });
             }
         };
         request.onerror = function () {
+            throwError("Não foi possível processar o seu pedido.");
             reject({
                 error: request.error
             });

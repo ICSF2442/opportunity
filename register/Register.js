@@ -13,7 +13,8 @@ $(document).ready(function(){
                 console.log("result",res);
             })
         }else{
-            $('#ErrorModal').modal('show');
+            let Error = "A palavra-passe não coincide."
+            throwError(Error);
         }
 
     })

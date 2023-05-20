@@ -1,3 +1,16 @@
+<?php
+require ("../api/settings.php");
+if(isset($_SESSION["user"])){
+    
+
+
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +33,8 @@
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="padding: 5px!important; ">
                     <ol class="breadcrumb mb-0" style="background-color: midnightblue">
-                        <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="utilizador.php">User</a></li>
+                        <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="user.php">User</a></li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                     </ol>
                 </nav>
@@ -30,14 +43,13 @@
     </div>
 
 
-
 <main>
 
 <div class="row" >
     <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-body text-center">
-                <img src="imagens/userPLACEHOLDER.png" alt="avatar"
+                <img src="../imagens/userPLACEHOLDER.png" alt="avatar"
                      class="rounded-circle img-fluid" style="width: 150px;">
                 <h5 class="my-3">Nome do jogador</h5>
                 <p class="text-muted mb-1">Role:</p>
