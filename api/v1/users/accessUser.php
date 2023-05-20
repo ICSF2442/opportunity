@@ -33,6 +33,7 @@ if($json == null){
             $ret = User::search(NULL,NULL,$email,$password);
             $request->setResult($ret[0]->toArray());
             $_SESSION["user"] = $ret[0];
+            $_SESSION['loggedin'] = true;
             echo($request->response());
 
         }else{
