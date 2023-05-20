@@ -31,9 +31,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-
-=======
 <div class="modal fade" id="modal-test" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -90,4 +87,3 @@
         z-index: 10000000;
     }
 </style>
->>>>>>> origin/main
