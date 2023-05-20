@@ -3,6 +3,7 @@
 namespace Objects;
 
 use Cassandra\Blob;
+use Enumerators\Role;
 use Functions\Database;
 
  class User
@@ -25,7 +26,7 @@ use Functions\Database;
 
      private ?int $team = null;
 
-     private ?int $status = null;
+     private ?int $status = 1;
 
      private ?int $role = null;
 
@@ -56,6 +57,7 @@ use Functions\Database;
          }
      }
      public function toArray(): array{
+
          $array = array("id" => $this->id,
              "username" => $this->username,
              "winrate"=> $this->winrate,
@@ -64,6 +66,7 @@ use Functions\Database;
              "team"=>$this->team,
              "status"=>$this->status,
              "role"=>$this->role,
+             "roleObj" => Role::getItem($this->role)?->toArray(),
             "verification"=>$this->verification);
          return $array;
 

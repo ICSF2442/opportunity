@@ -52,8 +52,8 @@ if(!isset($_SESSION["user"]) ){
             <div class="card-body text-center">
                 <img src="../imagens/userPLACEHOLDER.png" alt="avatar"
                      class="rounded-circle img-fluid" style="width: 150px;">
-                <h5 class="my-3">Nome do jogador</h5>
-                <p class="text-muted mb-1">Role:</p>
+                <h5 id="player-text-card-username" class="my-3" data-autofill="username">Nome do jogador</h5>
+                <p id="player-text" data-autofill="role" class="text-muted mb-1" >Role:</p>
             </div>
         </div>
 
@@ -114,7 +114,7 @@ if(!isset($_SESSION["user"]) ){
                         <p class="mb-0">Nome</p>
                     </div>
                     <div id="nome-jogador-text" class="col-sm-9">
-                        <p class="text-muted mb-0">Nome do jogador</p>
+                        <p class="text-muted mb-0" data-autofill="username">Nome do jogador</p>
                     </div>
                 </div>
                 <hr>
@@ -123,7 +123,7 @@ if(!isset($_SESSION["user"]) ){
                         <p class="mb-0">Email</p>
                     </div>
                     <div id="email-jogador-text" class="col-sm-9">
-                        <p class="text-muted mb-0">example@example.com</p>
+                        <p class="text-muted mb-0" data-autofill="email">example@example.com</p>
                     </div>
                 </div>
                 <hr>
@@ -140,8 +140,8 @@ if(!isset($_SESSION["user"]) ){
                     <div class="col-sm-3">
                         <p class="mb-0">Data de nascimento</p>
                     </div>
-                    <div id="birthday-jogador-text" class="col-sm-9">
-                        <p class="text-muted mb-0">03/04/2000</p>
+                    <div  class="col-sm-9">
+                        <p  id="birthday-jogador-text" class="text-muted mb-0" data-autofill="birthday">03/04/2000</p>
                     </div>
                 </div>
 

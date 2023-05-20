@@ -42,26 +42,26 @@ if($json == null){
             $request->setError("Nome de usuário já existe!");
             $request->setIsError(true);
             $request->setResult($user->toArray());
-            echo($request->response());
+            echo($request->response(false));
             die();
         }
         if (User::find(NULL, NULL, $user->getEmail(), NULL) == 1) {
             $request->setError("Email já usado!");
             $request->setIsError(true);
             $request->setResult($user->toArray());
-            echo($request->response());
+            echo($request->response(false));
             die();
         }
 
         $user->store();
         $_SESSION["user"] = $user;
-        echo($request->setResult($user->toArray())->response());
+        echo($request->setResult($user->toArray())->response(false));
 
 
     }else{
         $request->setError("Valores inválidos");
         $request->setIsError(true);
-        echo($request->response());
+        echo($request->response(false));
     }
 }
 

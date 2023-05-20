@@ -33,13 +33,13 @@ if($json == null){
             $ret = User::search(NULL,NULL,$email,$password);
             $request->setResult($ret[0]->toArray());
             $_SESSION["user"] = $ret[0];
-            echo($request->response());
+            echo($request->response(false));
 
         }else{
 
             $request->setError("Email ou password invalidos!");
             $request->setIsError(true);
-            echo($request->response());
+            echo($request->response(false));
         };
     }
 }
