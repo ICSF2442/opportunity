@@ -5,6 +5,7 @@ $(document).ready(function(){
         let password = $("#password-input").val();
         sendRequest("/users/accessUser.php",{email:email, password:password}).then((res)=>{
             console.log("result",res);
+            window.location.href = "http://localhost/Opportunity/user/";
         })
     })
 

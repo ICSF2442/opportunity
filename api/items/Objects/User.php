@@ -29,7 +29,7 @@ use Functions\Database;
 
      private ?int $role = null;
 
-     private ?int $verfication = 0;
+     private ?int $verification = 0;
 
 
      public function __construct(int $id = null)
@@ -51,7 +51,7 @@ use Functions\Database;
                  $this->team = $row["team"];
                  $this->status = $row["status"];
                  $this->role = $row["role"];
-                 $this->verfication = $row["verification"];
+                 $this->verification = $row["verification"];
              }
          }
      }
@@ -64,8 +64,7 @@ use Functions\Database;
              "team"=>$this->team,
              "status"=>$this->status,
              "role"=>$this->role,
-            "verification"=>$this->verfication);
-
+            "verification"=>$this->verification);
          return $array;
 
      }
@@ -371,18 +370,20 @@ use Functions\Database;
      /**
       * @return int|null
       */
-     public function getVerfication(): ?int
+     public function getVerification(): ?int
      {
-         return $this->verfication;
+         return $this->verification;
      }
 
      /**
-      * @param int|null $verfication
+      * @param int|null $verification
       */
-     public function setVerfication(?int $verfication): void
+     public function setVerification(?int $verification): void
      {
-         $this->verfication = $verfication;
+         $this->verification = $verification;
      }
+
+
 
 
 

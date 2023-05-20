@@ -69,13 +69,15 @@ class RequestResponse
     }
 
 
-    public function response(): string|bool
+    public function response(bool $print = true): string|bool
     {
-        return json_encode(array(
+        $json = json_encode(array(
             "result" => $this->result,
             "isError" => $this->isError,
             "error" => $this->error
         ));
+        if($print) echo $json;
+        return $json;
     }
     
 

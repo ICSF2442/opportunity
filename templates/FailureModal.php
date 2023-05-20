@@ -3,7 +3,7 @@
         if(Error != null) {
             console.log(Error);
             document.getElementById("text-modal-error-1").innerHTML = Error;
-            $('#successToast').modal('show');
+            $('#throw-error-modal-1').modal('show');
 
         }
     }
@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-test" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirmation-email-modal" tabindex="-1" role="dialog" aria-labelledby="loginFailureModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" id="modal-header-text">
