@@ -16,6 +16,8 @@ if($json == null){
     echo "ERRO! JSON INVALIDO!";
 
 }else {
+    $ret = User::search(NULL,$json["username"],NULL,NULL);
+    $ret2 = User::search(NULL,NULL,$json["email"]);
     $username = null;
     $email = null;
     $password = null;
@@ -24,7 +26,24 @@ if($json == null){
     $role = null;
     $user = new User();
     $user->setId($id);
-
+    if(!$json["username"] === $_SESSION["user"]->getUsername()) {
+        if (User::find(NULL, $json["username"], NULL, NULL) == 1) {
+            $request->setError("Nome de usuário já existe!");
+            $request->setIsError(true);
+            $request->setResult($user->toArray());
+            echo($request->response(false));
+            die();
+        }
+    }
+    if(!$json["email"] === $_SESSION["user"]->getEmail()) {
+        if (User::find(NULL, NULL, $json["email"], NULL) == 1) {
+            $request->setError("Email já usado!");
+            $request->setIsError(true);
+            $request->setResult($user->toArray());
+            echo($request->response(false));
+            die();
+        }
+    }
 
     if ($json["username"] != null) {
         $username = $json["username"];
