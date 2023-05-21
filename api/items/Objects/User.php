@@ -66,7 +66,7 @@ use Functions\Database;
              "image"=>$this->image,
              "team"=>$this->team,
              "status"=>$this->status,
-             "statusObj"=> Status::getItem($this->status?->toArray()),
+             "statusObj"=> Status::getItem($this->status)?->toArray(),
              "role"=>$this->role,
              "roleObj" => Role::getItem($this->role)?->toArray(),
             "verification"=>$this->verification);

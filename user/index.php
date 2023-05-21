@@ -74,48 +74,48 @@ if(!isset($_SESSION["user"]) ){
                     </div>
 
                     <!-- Modal body -->
-                    <div class="modal-body">
+                    <div id="modal-div-info" class="modal-body">
 
 
                         <div>
                             <label for="nome">Username:</label>
-                            <input name="nome" type="text" placeholder="Nome">
+                            <input id="username-edit-input" name="nome" type="text" placeholder="Nome">
                         </div>
 
                         <div>
                             <label for="email">Email:</label>
-                            <input name="email" type="email" placeholder="Email">
+                            <input id="email-edit-input" name="email" type="email" placeholder="Email">
                         </div>
 
                         <div>
                             <label for="password">Password:</label>
-                            <input name="password" type="password" placeholder="Password">
+                            <input id="password-edit-input" name="password" type="password" placeholder="Password">
                         </div>
 
                         <div>
                             <label for="birthday">Data de aniversário:</label>
-                            <input name="birthday" type="date">
+                            <input id="birthday-edit-input" name="birthday" type="date">
                         </div>
 
                         <div>
                             <label for="status">Status:</label>
-                            <select id="status" name="status">
+                            <select id="status-select-id" name="status">
                                 <option value="null">--Opção--</option>
-                                <option value="ativo">Ativo</option>
-                                <option value="inativo">Inativo</option>
-                                <option value="reformado">Reformado</option>
+                                <option value="1">Ativo</option>
+                                <option value="2">Inativo</option>
+                                <option value="3">Reformado</option>
                             </select>
                         </div>
 
                         <div>
                             <label for="role">Role:</label>
-                            <select id="status" name="status">
+                            <select id="role-select-id" name="status">
                                 <option value="null">--Opção--</option>
-                                <option value="top">Top</option>
-                                <option value="jung">Jung</option>
-                                <option value="mid">Mid</option>
-                                <option value="adc">Adc</option>
-                                <option value="supp">Supp</option>
+                                <option value="1">Top</option>
+                                <option value="2">Jung</option>
+                                <option value="3">Mid</option>
+                                <option value="4">Adc</option>
+                                <option value="5">Supp</option>
                             </select>
                         </div>
 
@@ -125,7 +125,7 @@ if(!isset($_SESSION["user"]) ){
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <input id="confirmar-modal-edit" type="submit" name="button" class="btn btn-primary" value="Confirmar">
                     </div>
 
                 </div>
