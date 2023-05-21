@@ -20,6 +20,7 @@ sendRequest("/users/getInfoUser.php",{}).then((res)=>{
         let role = document.getElementById("role-select-id").value;
         console.log("teste");
         console.log(username);
+        console.log(role);
 
         sendRequest("/users/editInfoUser.php",{username:username,password:password,email:email,birthday:birthday,status:status,role:role}).then((res)=>{
             console.log("result",res);
