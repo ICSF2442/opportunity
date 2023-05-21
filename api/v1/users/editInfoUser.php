@@ -28,29 +28,28 @@ if($json == null){
 
     if ($json["username"] != null) {
         $username = $json["username"];
+        $user->setUsername($username);
     }
     if ($json["email"] != null) {
         $email = $json["email"];
+        $user->setEmail($email);
     }
     if ($json["password"] != null) {
         $password = $json["password"];
+        $user->setPassword(hash("sha256",$password));
     }
     if ($json["birthday"] != null) {
         $birthday = $json["birthday"];
+        $user->setBirthday($birthday);
     }
     if($json["status"] != null){
         $status = $json["status"];
+        $user->setStatus($status);
     }
     if($json["role"] != null){
         $role = $json["role"];
+        $user->setRole($role);
     }
-
-    $user->setUsername($username);
-    $user->setEmail($email);
-    $user->setBirthday($birthday);
-    $user->setStatus($status);
-    $user->setPassword(hash("sha256",$password));
-    $user->setRole($role);
 
     $user->store();
     $_SESSION["user"] = $user;

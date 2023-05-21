@@ -94,7 +94,7 @@ if(!isset($_SESSION["user"]) ){
 
                         <div>
                             <label for="birthday">Data de aniversário:</label>
-                            <input id="birthday-edit-input" name="birthday" type="date">
+                            <input id="birthday-edit-input" name="birthday" type="date" placeholder="">
                         </div>
 
                         <div>
