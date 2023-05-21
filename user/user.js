@@ -1,14 +1,7 @@
 $(document).ready(function(){
-sendRequest("/users/getInfoUser.php",{}).then((res)=>{
-    let defaultObj = {
-        "role": "Role não escolhida"
-    };
-    $("[data-autofill]").each(function() {
-        let value = res[$(this).data("autofill")] === undefined || res[$(this).data("autofill")] == null ? defaultObj.role : res[$(this).data("autofill")];
-        $(this).html(value);
-    });
 
 
+    updateUserInfo();
 
     document.getElementById("confirmar-modal-edit").onclick = function () {
         console.log("sucesso");
@@ -22,8 +15,17 @@ sendRequest("/users/getInfoUser.php",{}).then((res)=>{
         console.log(username);
         console.log(role);
 
-        sendRequest("/users/editInfoUser.php",{username:username,password:password,email:email,birthday:birthday,status:status,role:role}).then((res)=>{
+        sendRequest("/users/editInfoUser.php",{
+            username:username,
+            password:password,
+            email:email,
+            birthday:birthday,
+            status:status,
+            role:role
+        }).then((res)=>{
             console.log("result",res);
+            updateUserInfo();
+            $('#modal-edit-user').modal('hide');
         });
 
     };
@@ -36,6 +38,17 @@ $("#status-jogador-text").html(res.status);
 $("#player-text-card-username").html(res.username);*/
 
 
-})
-})
+});
+
+function updateUserInfo(){
+    sendRequest("/users/getInfoUser.php",{}).then((res)=>{
+        let defaultObj = {
+            "role": "Role não escolhida"
+        };
+        $("[data-autofill]").each(function() {
+            let value = res[$(this).data("autofill")] === undefined || res[$(this).data("autofill")] == null ? defaultObj.role : res[$(this).data("autofill")];
+            $(this).html(value);
+        });
+});}
+
 

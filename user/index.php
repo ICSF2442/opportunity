@@ -58,12 +58,12 @@ if(!isset($_SESSION["user"]) ){
         </div>
 
         <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-user">
             Mudar Credenciais
         </button>
 
         <!-- The Modal -->
-        <div class="modal" id="myModal">
+        <div class="modal" id="modal-edit-user">
             <div class="modal-dialog">
                 <div class="modal-content">
 
