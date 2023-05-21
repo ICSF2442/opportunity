@@ -112,10 +112,10 @@ if(!isset($_SESSION["user"]) ){
                             <select id="role-select-id" name="status">
                                 <option value="null">--Opção--</option>
                                 <option value="1">Top</option>
-                                <option value="2">Jung</option>
+                                <option value="2">Jungle</option>
                                 <option value="3">Mid</option>
                                 <option value="4">Adc</option>
-                                <option value="5">Supp</option>
+                                <option value="5">Sup</option>
                             </select>
                         </div>
 
