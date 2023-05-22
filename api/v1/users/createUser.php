@@ -53,6 +53,7 @@ if($json == null){
             die();
         }
         $user->setDev(0);
+        $user->setStatus(1);
         $user->store();
         $_SESSION["user"] = $user;
         echo($request->setResult($user->toArray())->response(false));

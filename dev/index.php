@@ -20,8 +20,10 @@ if(!isset($_SESSION["user"]) ){
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="../resources/js/Request.js"></script>
     <script src="dev.js"></script>
+
 </head>
 <title>Opportunity</title>
 <body style="background: rgb(10, 20, 104) ;

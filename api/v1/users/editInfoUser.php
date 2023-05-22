@@ -6,6 +6,7 @@ use Objects\RequestResponse;
 use Objects\User;
 
 $id = $_SESSION["user"]->getId();
+$dev = $_SESSION["user"]->getDev();
 
 $request = new RequestResponse();
 
@@ -68,6 +69,11 @@ if($json == null){
     if($json["role"] != null){
         $role = $json["role"];
         $user->setRole($role);
+    }
+    if($dev != 0){
+        $user->setDev($dev);
+    }else{
+        $user->setDev(0);
     }
 
     $user->store();
