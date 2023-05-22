@@ -1,10 +1,6 @@
 $(document).ready(function(){
 
-
     updateUserInfo();
-
-
-
     document.getElementById("confirmar-modal-edit-dev").onclick = function () {
 
         let username = document.getElementById("nome-dev-edit").value;
@@ -61,3 +57,9 @@ function updateUserInfo(){
         });
 
     });}
+
+function updateTable(){
+    sendRequest("/users/getUsers.php",{}).then((res) =>{
+
+    });
+}

@@ -20,7 +20,12 @@ if(!isset($_SESSION["user"]) ){
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/v/bs4-4.6.0/dt-1.13.4/b-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/kt-2.9.0/r-2.4.1/rg-1.3.1/rr-1.3.3/sc-2.1.1/sp-2.1.2/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
+    <script src="https://cdn.datatables.net/v/bs4-4.6.0/dt-1.13.4/b-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/kt-2.9.0/r-2.4.1/rg-1.3.1/rr-1.3.3/sc-2.1.1/sp-2.1.2/sl-1.6.2/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
     <script src="../resources/js/Request.js"></script>
     <script src="dev.js"></script>
 
@@ -35,7 +40,9 @@ if(!isset($_SESSION["user"]) ){
 <div class="container py-0 p-2 sticky-top">
     <div class="row">
         <div class="col">
+
             <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="padding: 5px!important; ">
+
                 <ol class="breadcrumb mb-0" style="background-color: midnightblue">
                     <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="index.php">Dev</a></li>
@@ -214,10 +221,12 @@ if(!isset($_SESSION["user"]) ){
             </div>
             <div class="row">
                 <div class="col-lg-12">
+
                     <div class="card mb-5">
+
                         <div class="card-body">
-                            <p </span>
-                            </p>
+
+
 
                     </div>
                 </div>
