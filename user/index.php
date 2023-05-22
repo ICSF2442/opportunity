@@ -4,6 +4,9 @@ require ("../api/settings.php");
 if(!isset($_SESSION["user"]) ){
     header('Location: http://localhost/Opportunity');
 }
+if ($_SESSION["user"]->getDev()==1){
+    header('Location: http://localhost/Opportunity/dev');
+}
 
 
 

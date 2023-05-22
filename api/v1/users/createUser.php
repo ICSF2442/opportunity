@@ -52,7 +52,7 @@ if($json == null){
             echo($request->response(false));
             die();
         }
-
+        $user->setDev(0);
         $user->store();
         $_SESSION["user"] = $user;
         echo($request->setResult($user->toArray())->response(false));
