@@ -11,6 +11,7 @@ $(document).ready(function(){
         let birthday = document.getElementById("birthday-edit-input").value;
         let status = document.getElementById("status-select-id").value;
         let role = document.getElementById("role-select-id").value;
+        let self = true;
 
 
         sendRequest("/users/editInfoUser.php",{
@@ -19,9 +20,9 @@ $(document).ready(function(){
             email:email,
             birthday:birthday,
             status:status,
-            role:role
+            role:role,
+            self:self
         }).then((res)=>{
-            console.log("teste,entrei aqui")
             console.log("result",res);
             updateUserInfo();
             $('#modal-edit-user').modal('hide');

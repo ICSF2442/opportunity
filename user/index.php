@@ -2,15 +2,13 @@
 
 require ("../api/settings.php");
 if(!isset($_SESSION["user"]) ){
-    //header('Location: http://localhost/Opportunity');
-    header('Location: http://localhost/ATW_TP1');
+    header('Location: http://localhost/Opportunity');
+    //header('Location: http://localhost/ATW_TP1');
 }
-if ($_SESSION["user"]->getDev()==2){
-    //header('Location: http://localhost/Opportunity/dev');
-    header('Location: http://localhost/ATW_TP1/dev');
+if ($_SESSION["user"]->getDev()==1){
+    header('Location: http://localhost/Opportunity/dev');
+    //header('Location: http://localhost/ATW_TP1/dev');
 }
-
-
 
 ?>
 
@@ -246,8 +244,6 @@ if ($_SESSION["user"]->getDev()==2){
 </main>
     <?php
     require("../templates/FailureModal.php");
-
-
     ?>
 
 </body>

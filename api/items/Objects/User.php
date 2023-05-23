@@ -21,13 +21,13 @@ use Functions\Database;
 
      private ?float $winrate = null;
 
-     private ?int $dev = 0;
+     private ?int $dev;
 
      private ?Blob $image = null;
 
      private ?int $team = null;
 
-     private ?int $status = 0;
+     private ?int $status;
 
      private ?int $role = null;
 
@@ -182,7 +182,6 @@ use Functions\Database;
          // executa o comando sql dinamico
          $query = Database::getConnection()->query($sql);
         // echo $sql;
-
          if ($query->num_rows > 0) {
              // se o comando sql for maior que 0 irá percorrer o array de ids
              while($row = $query->fetch_array(MYSQLI_ASSOC)){

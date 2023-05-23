@@ -52,11 +52,10 @@ if($json == null){
             echo($request->response(false));
             die();
         }
-        $user->setVerification(1);
-        $user->setDev(1);
+        $user->setVerification(0);
+        $user->setDev(0);
         $user->setStatus(1);
         $user->store();
-        $_SESSION["user"] = $user;
         echo($request->setResult($user->toArray())->response(false));
 
 

@@ -9,7 +9,18 @@ $json = Utils::getRequestBody();
 
 $ret = User::search();
 
-(new RequestResponse())->setResult($ret)->response();
+$result = array();
+
+for($i = 0; $i < count($ret); $i++){
+    $array = $ret[$i]->toArray();
+    $array["birthday"] = $ret[$i]->getBirthday();
+    $array["email"] = $ret[$i]->getEmail();
+    $result[] = $array;
+}
+
+
+
+(new RequestResponse())->setResult($result)->response();
 
 
 

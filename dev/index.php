@@ -2,7 +2,10 @@
 
 require ("../api/settings.php");
 if(!isset($_SESSION["user"]) ){
-    header('Location: http://localhost/Opportunity');
+    if($_SESSION["user"]->getDev()==null){
+        header('Location: http://localhost/Opportunity');
+    }
+
 }
 
 
@@ -27,6 +30,7 @@ if(!isset($_SESSION["user"]) ){
 
     <script src="../resources/js/Request.js"></script>
     <script src="dev.js"></script>
+
 
 </head>
 <title>Opportunity</title>
@@ -114,6 +118,7 @@ if(!isset($_SESSION["user"]) ){
                         <div class="modal-footer">
                             <input id="confirmar-modal-createuser-dev" type="submit" name="button" class="btn btn-primary" value="Confirmar">
                         </div>
+
 
                     </div>
                 </div>
@@ -223,10 +228,129 @@ if(!isset($_SESSION["user"]) ){
                 <div class="col-lg-12">
 
                     <div class="card mb-5">
+                        <table id="DataTable" class="table table-striped table-bordered" style="width:100%" >
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Birthday</th>
+                                <th>Image</th>
+                                <th>Team</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>Verification</th>
+                                <th>Dev</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                                <td>null</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Birthday</th>
+                                <th>Image</th>
+                                <th>Team</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>Verification</th>
+                                <th>Dev</th>
+                            </tr>
+                            </tfoot>
+                        </table>
 
                         <div class="card-body">
 
 
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- The Modal -->
+            <div class="modal" id="modal-edit-user-user-dev">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Mudança de credenciais</h4>
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div id="modal-div-info" class="modal-body">
+
+
+                            <div>
+                                <label for="nome">Username:</label>
+                                <input id="username-edit-input-user-dev" name="nome" type="text" placeholder="Nome">
+                            </div>
+
+                            <div>
+                                <label for="email">Email:</label>
+                                <input id="email-edit-input-user-dev" name="email" type="email" placeholder="Email">
+                            </div>
+
+                            <div>
+                                <label for="password">Password:</label>
+                                <input id="password-edit-input-user-dev" name="password" type="password" placeholder="Password">
+                            </div>
+
+                            <div>
+                                <label for="birthday">Data de aniversário:</label>
+                                <input id="birthday-edit-input-user-dev" name="birthday" type="date" placeholder="">
+                            </div>
+
+                            <div>
+                                <label for="status">Status:</label>
+                                <select id="status-select-id-user-dev" name="status">
+                                    <option value="null">--Opção--</option>
+                                    <option value="1">Ativo</option>
+                                    <option value="2">Inativo</option>
+                                    <option value="3">Reformado</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="role">Role:</label>
+                                <select id="role-select-id-user-dev" name="status">
+                                    <option value="null">--Opção--</option>
+                                    <option value="1">Top</option>
+                                    <option value="2">Jungle</option>
+                                    <option value="3">Mid</option>
+                                    <option value="4">Adc</option>
+                                    <option value="5">Sup</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="role">Dev:</label>
+                                <select id="dev-select-id-user-dev" name="status">
+                                    <option value="null">--Opção--</option>
+                                    <option value="1">Sim</option>
+                                    <option value="0">Não</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <input id="confirmar-modal-edit-user-dev" type="submit" name="button" class="btn btn-primary" value="Confirmar">
+                        </div>
 
                     </div>
                 </div>
