@@ -21,6 +21,7 @@ $(document).ready(function(){
             status:status,
             role:role
         }).then((res)=>{
+            console.log("teste,entrei aqui")
             console.log("result",res);
             updateUserInfo();
             $('#modal-edit-user').modal('hide');
@@ -41,10 +42,19 @@ $("#player-text-card-username").html(res.username);*/
 function updateUserInfo(){
     sendRequest("/users/getInfoUser.php",{}).then((res)=>{
 
+        console.log(res);
         $("#username-edit-input").attr("placeholder", res.username );
         $("#birthday-edit-input").attr("placeholder", res.birthday );
-        $("#status-select-id").val(res.statusObj["value"]);
-        $("#role-select-id").val(res.roleObj["value"]);
+        if(res.role == null){
+            $("#role-select-id").val(null);
+        }else{
+            $("#role-select-id").val(res.roleObj["value"]);
+        }
+        if(res.status == null){
+            $("#status-select-id").val(null);
+        }else{
+            $("#status-select-id").val(res.statusObj["value"]);
+        }
         $("#email-edit-input").attr("placeholder", res.email);
         let defaultObj = {
             "role": "Role não escolhida"

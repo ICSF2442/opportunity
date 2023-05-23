@@ -11,7 +11,8 @@ $(document).ready(function(){
         if(password === password2){
             sendRequest("/users/createUser.php",{username:username, email:email, password:password, birthday:birthday}).then((res)=>{
                 console.log("result",res);
-                window.location.href = "http://localhost/Opportunity/login/";
+                //window.location.href = "http://localhost/Opportunity/login/";
+               window.location.href = "http://localhost/ATW_TP1/login/";
             })
         }else{
             let Error = "A palavra-passe não coincide."
