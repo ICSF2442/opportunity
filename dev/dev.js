@@ -48,7 +48,11 @@ function updateUserInfo(){
 
         $("#nome-dev-edit").attr("placeholder", res.username );
         $("#birthday-dev-edit").attr("placeholder", res.birthday );
-        $("#status-dev-edit").val(res.statusObj["value"]);
+        if(res.status == null){
+            $("#status-select-id").val(null);
+        }else{
+            $("#status-select-id").val(res.statusObj["value"]);
+        }
         $("#email-dev-edit").attr("placeholder", res.email);
 
         $("[data-autofill]").each(function() {

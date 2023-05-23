@@ -21,7 +21,6 @@ if(!isset($_SESSION["user"]) ){
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/v/bs4-4.6.0/dt-1.13.4/b-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/kt-2.9.0/r-2.4.1/rg-1.3.1/rr-1.3.3/sc-2.1.1/sp-2.1.2/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
     <script src="https://cdn.datatables.net/v/bs4-4.6.0/dt-1.13.4/b-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/kt-2.9.0/r-2.4.1/rg-1.3.1/rr-1.3.3/sc-2.1.1/sp-2.1.2/sl-1.6.2/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
@@ -47,6 +46,7 @@ if(!isset($_SESSION["user"]) ){
                     <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="index.php">Dev</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Dev Profile</li>
+                    <li class="breadcrumb-item ml-auto" ><a href="" style="color:red;" >Logout</a></li>
                 </ol>
             </nav>
         </div>

@@ -27,7 +27,7 @@ use Functions\Database;
 
      private ?int $team = null;
 
-     private ?int $status = 1;
+     private ?int $status = 0;
 
      private ?int $role = null;
 
@@ -89,9 +89,11 @@ use Functions\Database;
                  $columns .= ", " . $field;
                  $values .= ", " . ($this->{$field} != null ? "'" . $this->{$field} . "'" : "NULL");
              }
+
              $columns = substr($columns, 2);
              $values = substr($values, 2);
              $sql = "INSERT INTO USER ($columns) VALUES ($values);";
+
              //$sql = "INSERT INTO user (id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES ($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',".($this->team == null ? "NULL" : "'$this->team'").",$this->status,$this->role)";
              //echo ($sql);
              Database::getConnection()->query($sql);

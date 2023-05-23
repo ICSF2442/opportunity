@@ -52,7 +52,8 @@ if($json == null){
             echo($request->response(false));
             die();
         }
-        $user->setDev(0);
+        $user->setVerification(1);
+        $user->setDev(1);
         $user->setStatus(1);
         $user->store();
         $_SESSION["user"] = $user;

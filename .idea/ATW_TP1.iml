@@ -15,5 +15,6 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" name="datatables" level="application" />
+    <orderEntry type="library" name="datatables" level="application" />
   </component>
 </module>
