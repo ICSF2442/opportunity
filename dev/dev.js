@@ -112,7 +112,7 @@ function updateTable(){
                 $("<td>").html(item.verification ? item.verification : 'Não verificado')
             );
             tr.append(
-                $("<td>").html(item.dev ? item.dev : 'Não')
+                $("<td>").html(item.dev ? "Sim" : 'Não')
             );
             $(tr).dblclick(() => {
                 openEditUser(item);
