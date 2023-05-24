@@ -69,9 +69,6 @@ if(isset($_SESSION["user"]) ){
                                 </div>
                                 <input id="password-input" type="password" name="" class="form-control input_pass" value="" placeholder="Password">
                             </div>
-                            <div class="form-group">
-                                
-                            </div>
                             <div class="d-flex justify-content-center mt-3 login_container">
                                 <input type="submit" name="button" class="btn btn-primary" value="Login">
                             </div>
@@ -91,12 +88,10 @@ if(isset($_SESSION["user"]) ){
         </div>
     </div>
 </div>
+
 <?php
 require("../templates/FailureModal.php");
-
-
 ?>
-
 
 </body>
 

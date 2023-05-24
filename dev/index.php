@@ -349,6 +349,7 @@ if($_SESSION["user"]->getDev()==null){
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <input id="confirmar-modal-edit-user-dev" type="submit" name="button" class="btn btn-primary" value="Confirmar">
+                            <button id="dev-remove-user"  class="btn btn-danger" >Remove</button>
                         </div>
 
                     </div>

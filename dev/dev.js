@@ -11,10 +11,7 @@ $(document).ready(function(){
 
     updateTable();
 
-
-
     document.getElementById("confirmar-modal-edit-dev").onclick = function () {
-
 
         let username = document.getElementById("nome-dev-edit").value;
         let password = document.getElementById("password-dev-edit").value;
@@ -40,8 +37,6 @@ $(document).ready(function(){
         });
 
     };
-
-
 
     document.getElementById("confirmar-modal-createuser-dev").onclick = function () {
         let username = document.getElementById("dev-create-username").value;
@@ -124,9 +119,6 @@ function updateTable(){
             $(tr).dblclick(() => {
                 openEditUser(item);
 
-
-
-
             });
             datatable.rows.add(tr);
         }
@@ -137,11 +129,10 @@ function updateTable(){
 }
 
 function openEditUser(item){
-    console.log(item.roleObj["name"]);
+
     sendRequest("/users/getInfoUser.php",{}).then((res) =>{
         if(res.id === item.id){
             $('#modal-edit-dev').modal('show');
-
         }else{
             $('#modal-edit-user-user-dev').modal('show');
         }
@@ -166,8 +157,6 @@ function openEditUser(item){
     }
     $("#email-edit-input-user-dev").attr("placeholder", item.email);
 
-
-
     document.getElementById("confirmar-modal-edit-user-dev").onclick = function () {
         let id = item.id;
         let username = document.getElementById("username-edit-input-user-dev").value;
@@ -178,7 +167,6 @@ function openEditUser(item){
         let role = document.getElementById("role-select-id-user-dev").value;
         let dev = document.getElementById("dev-select-id-user-dev").value;
         let self = false;
-
 
         sendRequest("/users/editInfoUser.php",{
             id:id,
@@ -196,13 +184,20 @@ function openEditUser(item){
             updateTable();
             $('#modal-edit-user-user-dev').modal('hide');
         });
-
     };
-
+    document.getElementById("dev-remove-user").onclick= function (){
+        let id = item.id;
+        console.log("teste, entrei")
+        sendRequest("/users/removeUser.php",{
+            id:id
+        }).then((res) =>{
+            console.log("result",res);
+            $('#modal-edit-user-user-dev').modal('hide');
+            updateTable();
+        })
+    }
 }
 
 function logout(){
     sendRequest("/users/logoutUser.php",{}).then((res) =>{});
-
-
 }
