@@ -21,19 +21,19 @@ use Functions\Database;
 
      private ?float $winrate = null;
 
-     private ?int $dev;
+     private ?int $dev = null;
 
      private ?Blob $image = null;
 
      private ?int $team = null;
 
-     private ?int $status;
+     private ?int $status = null;
 
      private ?int $role = null;
 
      private ?int $verification = 0;
 
-     private ?int $user_number;
+     private ?int $user_number = null;
 
 
      public function __construct(int $id = null)
