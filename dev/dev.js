@@ -97,7 +97,7 @@ function updateTable(){
                 $("<td>").html(item.birthday ? item.birthday : 'Não definido')
             );
             tr.append(
-                $("<td>").html(item.image ? item.birthday : 'Não definido')
+                $("<td>").html(item.user_number ? item.user_number : 'Não definido')
             );
             tr.append(
                 $("<td>").html(item.team ? item.team : 'Não definido')
@@ -114,8 +114,6 @@ function updateTable(){
             tr.append(
                 $("<td>").html(item.dev ? item.dev : 'Não')
             );
-
-
             $(tr).dblclick(() => {
                 openEditUser(item);
 

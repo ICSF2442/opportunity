@@ -220,6 +220,15 @@ if($_SESSION["user"]->getDev()==null){
                             <p data-autofill="birthday" class="text-muted mb-0">03/04/2000</p>
                         </div>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Número de utilizador</p>
+                        </div>
+                        <div  class="col-sm-9">
+                            <p  id="user-number-jogador-text" class="text-muted mb-0" data-autofill="user_number">03/04/2000</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -233,7 +242,7 @@ if($_SESSION["user"]->getDev()==null){
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Birthday</th>
-                                <th>Image</th>
+                                <th>User Number</th>
                                 <th>Team</th>
                                 <th>Status</th>
                                 <th>Role</th>
@@ -259,7 +268,7 @@ if($_SESSION["user"]->getDev()==null){
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Birthday</th>
-                                <th>Image</th>
+                                <th>User Number</th>
                                 <th>Team</th>
                                 <th>Status</th>
                                 <th>Role</th>

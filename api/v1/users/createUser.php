@@ -18,6 +18,7 @@ if($json == null){
     $email = null;
     $password = null;
     $birthday = null;
+    $user_number = null;
 
     if ($json["username"] != null) {
         $username = $json["username"];
@@ -38,6 +39,7 @@ if($json == null){
         $user->setEmail($email);
         $user->setPassword(hash('sha256', $password));
         $user->setBirthday($birthday);
+        $user->setUserNumber();
         if (User::find(NULL, $user->getUsername(), NULL, NULL) == 1) {
             $request->setError("Nome de usuário já existe!");
             $request->setIsError(true);

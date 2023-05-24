@@ -33,6 +33,8 @@ use Functions\Database;
 
      private ?int $verification = 0;
 
+     private ?int $user_number;
+
 
      public function __construct(int $id = null)
      {
@@ -54,6 +56,7 @@ use Functions\Database;
                  $this->status = $row["status"];
                  $this->role = $row["role"];
                  $this->verification = $row["verification"];
+                 $this->user_number = $row["user_number"];
              }
          }
      }
@@ -69,14 +72,15 @@ use Functions\Database;
              "statusObj"=> Status::getItem($this->status)?->toArray(),
              "role"=>$this->role,
              "roleObj" => Role::getItem($this->role)?->toArray(),
-            "verification"=>$this->verification);
+            "verification"=>$this->verification,
+            "user_number"=>$this->user_number);
          return $array;
 
      }
 
      public function store(): void{
 
-         $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role","verification");
+         $fields = array("id","username","email","password","birthday","winrate","dev","image","team","status","role","verification","user_number");
 
          if ($this->id == null) {
 
@@ -126,7 +130,7 @@ use Functions\Database;
          }
      }
 
-     public static function find(int $id = null, string $username = null, string $email = null, string $password = null, int $verification = null): int{
+     public static function find(int $id = null, string $username = null, string $email = null, string $password = null, int $verification = null, int $user_number = null): int{
          $sql = "SELECT id FROM user WHERE 1=1";
          if($id != NULL){
              $sql .= " AND (id = $id)";
@@ -143,6 +147,9 @@ use Functions\Database;
          if($verification != NULL){
              $sql .= " AND (verification = '$verification')";
          }
+         if($user_number != NULL){
+             $sql .= " AND (user_number = $user_number)";
+         }
          $query = Database::getConnection()->query($sql);
 
          if ($query->num_rows > 0) {
@@ -157,11 +164,10 @@ use Functions\Database;
          if ($id != null){
              $sql = "DELETE FROM user WHERE id = $id";
              Database::getConnection()->query($sql);
-
          }
      }
 
-     public static function search(int $id = null, string $username = null, string $email = null, string $password = null): array{
+     public static function search(int $id = null, string $username = null, string $email = null, string $password = null, int $user_number = null): array{
          // crias o comando sql principal
          $sql = "SELECT id FROM USER WHERE 1=1";
          // se passar um dado "id" então vai adicionar ao SQL uma parte dinamica: verificar se o id é igual ao id
@@ -176,6 +182,9 @@ use Functions\Database;
          }
          if($password != null){
              $sql .= " and (password = '$password')";
+         }
+         if($user_number != null){
+             $sql .= " and (user_number = $user_number)";
          }
          // cria o array de retorno
          $ret = array();
@@ -387,6 +396,30 @@ use Functions\Database;
      public function setVerification(?int $verification): void
      {
          $this->verification = $verification;
+     }
+
+     /**
+      * @return int|null
+      */
+     public function getUserNumber(): ?int
+     {
+         return $this->user_number;
+     }
+
+     /**
+      * @param int|null $user_number
+      */
+     public function setUserNumber(): void
+     {
+
+         $user_number = rand(0, 9999);
+
+         if(User::find(null,null,null,null,null,$user_number)){
+             $this->setUserNumber();
+         }else{
+             $this->user_number = $user_number;
+         }
+
      }
 
 

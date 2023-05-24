@@ -176,6 +176,15 @@ if ($_SESSION["user"]->getDev()==1){
                         <p  id="birthday-jogador-text" class="text-muted mb-0" data-autofill="birthday">03/04/2000</p>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Número de utilizador</p>
+                    </div>
+                    <div  class="col-sm-9">
+                        <p  id="user-number-jogador-text" class="text-muted mb-0" data-autofill="user_number">03/04/2000</p>
+                    </div>
+                </div>
 
             </div>
         </div>
