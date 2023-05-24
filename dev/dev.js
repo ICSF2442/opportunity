@@ -7,7 +7,6 @@ $(document).ready(function(){
         select: true
     } );
 
-
     updateUserInfo();
 
     updateTable();
@@ -199,5 +198,11 @@ function openEditUser(item){
         });
 
     };
+
+}
+
+function logout(){
+    sendRequest("/users/logoutUser.php",{}).then((res) =>{});
+
 
 }

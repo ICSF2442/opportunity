@@ -1,3 +1,17 @@
+<?php
+
+require ("../api/settings.php");
+if(isset($_SESSION["user"]) ){
+    if($_SESSION["user"]->getDev()==1){
+        header('Location: http://localhost/Opportunity/dev');
+    }else{
+        header('Location: http://localhost/Opportunity/user');
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,10 +70,7 @@
                                 <input id="password-input" type="password" name="" class="form-control input_pass" value="" placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                </div>
+                                
                             </div>
                             <div class="d-flex justify-content-center mt-3 login_container">
                                 <input type="submit" name="button" class="btn btn-primary" value="Login">

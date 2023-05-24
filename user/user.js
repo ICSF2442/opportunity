@@ -30,15 +30,16 @@ $(document).ready(function(){
 
     };
 
-
-
 /*$("#nome-jogador-text").html(res.username);
 $("#birthday-jogador-text").html(res.birthday);
 $("#status-jogador-text").html(res.status);
 $("#player-text-card-username").html(res.username);*/
 
-
 });
+
+function logoutUser(){
+    sendRequest("/users/logoutUser.php",{}).then((res) =>{});
+}
 
 function updateUserInfo(){
     sendRequest("/users/getInfoUser.php",{}).then((res)=>{

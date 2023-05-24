@@ -40,6 +40,7 @@ if ($_SESSION["user"]->getDev()==1){
                         <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="index.php">User</a></li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        <li id="log-out-dev" class="breadcrumb-item ml-auto" ><a id="log-out-dev2" href="http://localhost/Opportunity" onclick="logoutUser()" style="color:red;" >Logout</a></li>
                     </ol>
                 </nav>
             </div>

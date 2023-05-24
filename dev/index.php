@@ -2,12 +2,11 @@
 
 require ("../api/settings.php");
 if(!isset($_SESSION["user"]) ){
-    if($_SESSION["user"]->getDev()==null){
-        header('Location: http://localhost/Opportunity');
-    }
-
+    header('Location: http://localhost/Opportunity');
 }
-
+if($_SESSION["user"]->getDev()==null){
+    header('Location: http://localhost/Opportunity');
+}
 
 ?>
 
@@ -50,7 +49,7 @@ if(!isset($_SESSION["user"]) ){
                     <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="index.php">Dev</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Dev Profile</li>
-                    <li class="breadcrumb-item ml-auto" ><a href="" style="color:red;" >Logout</a></li>
+                    <li id="log-out-dev" class="breadcrumb-item ml-auto" ><a id="log-out-dev2" href="http://localhost/Opportunity" onclick="logout()" style="color:red;" >Logout</a></li>
                 </ol>
             </nav>
         </div>

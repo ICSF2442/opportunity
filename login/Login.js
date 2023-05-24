@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $("#form-login").on("submit",function (e){
         e.preventDefault();
         let email = $("#email-input").val();
@@ -7,8 +8,6 @@ $(document).ready(function(){
             console.log("result",res);
             window.location.href = "http://localhost/Opportunity/user/";
            // window.location.href = "http://localhost/ATW_TP1/user/";
-
         })
     })
-
 })
