@@ -1,6 +1,9 @@
 <?php
 
 require ("../api/settings.php");
+if($_SESSION["user"]->getVerification() == null){
+    header('Location: http://localhost/Opportunity/confirmacao');
+}
 if(!isset($_SESSION["user"]) ){
     header('Location: http://localhost/Opportunity');
     //header('Location: http://localhost/ATW_TP1');

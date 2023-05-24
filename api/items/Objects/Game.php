@@ -261,8 +261,4 @@ private ?DateTime $tempo_inicio= null ;
     {
         $this->tempo_inicio = $tempo_inicio;
     }
-
-
-
-
 }
