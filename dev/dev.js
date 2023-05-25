@@ -100,6 +100,9 @@ function updateTable(){
                 $("<td>").html(item.user_number ? item.user_number : 'Não definido')
             );
             tr.append(
+                $("<td>").html(item.email ? item.email : 'Não definido')
+            );
+            tr.append(
                 $("<td>").html(item.team ? item.team : 'Não definido')
             );
             tr.append(

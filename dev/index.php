@@ -243,6 +243,7 @@ if($_SESSION["user"]->getDev()==null){
                                 <th>Username</th>
                                 <th>Birthday</th>
                                 <th>User Number</th>
+                                <th>Email</th>
                                 <th>Team</th>
                                 <th>Status</th>
                                 <th>Role</th>
@@ -261,6 +262,7 @@ if($_SESSION["user"]->getDev()==null){
                                 <td>null</td>
                                 <td>null</td>
                                 <td>null</td>
+                                <td>null</td>
                             </tr>
                             </tbody>
                             <tfoot>
@@ -269,6 +271,7 @@ if($_SESSION["user"]->getDev()==null){
                                 <th>Username</th>
                                 <th>Birthday</th>
                                 <th>User Number</th>
+                                <th>Email</th>
                                 <th>Team</th>
                                 <th>Status</th>
                                 <th>Role</th>
