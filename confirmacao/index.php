@@ -82,7 +82,7 @@ $mail->Username   = "opportunity_atw@outlook.pt";
 $mail->Password   = "ispgaya123@_opportunity";
 $mail->SetFrom('opportunity_atw@outlook.pt', 'OPPORTUNITY');
 $mail->AddReplyTo('replyto@example.com','Nome');
-$mail->AddAddress('icsf2442@gmail.com', 'Nome');
+$mail->AddAddress($_SESSION["user"]->getEmail(), 'Nome');
 $mail->Subject = 'Verificacao de email - Opportunity';
 $mail->MsgHTML("Hello ".$_SESSION["user"]->getUsername().",
 we need to verify your email before accessing.
