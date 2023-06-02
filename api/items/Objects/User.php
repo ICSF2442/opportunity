@@ -98,8 +98,7 @@ use Functions\Database;
              $values = substr($values, 2);
              $sql = "INSERT INTO USER ($columns) VALUES ($values);";
 
-             //$sql = "INSERT INTO user (id,username,email,birthday,password,winrate,dev,image,team,status,role) VALUES ($this->id,'$this->username','$this->email','$this->birthday','$this->password',$this->winrate,$this->dev,'$this->image',".($this->team == null ? "NULL" : "'$this->team'").",$this->status,$this->role)";
-             //echo ($sql);
+
              Database::getConnection()->query($sql);
          }else{
 
@@ -110,13 +109,10 @@ use Functions\Database;
              }
 
              $values = substr($values, 1);
-             // agora é fazer a mesma lógica para o update, soq o update é mais fácil xd, fazes a logica de so um
-             // tu ainda pds mlhrar isto e fazer por reflexão, em vez de teres q escrever os fields em si
-             // gl, bye-bye kururin wq
+
              $sql = "UPDATE user SET $values WHERE id = $this->id";
 
-           //$sql = "UPDATE user SET username = '$this->username', email = '$this->email', password = '$this->password', birthday = '$this->birthday', winrate = $this->winrate, dev=$this->dev, image = '$this->image', team = $this->team, status = $this->status, role = $this->role WHERE id = $this->id";
-             //echo($sql);
+
            Database::getConnection()->query($sql);
          }
 
